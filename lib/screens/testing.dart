@@ -76,12 +76,6 @@ class _TestingState extends State<Testing> {
                   fontSize: 20,
                 ),
               ),
-              // style: ElevatedButton.styleFrom(
-              //   backgroundColor:
-              //       Colors.transparent, // Remove background color
-              //   shadowColor: Colors.transparent, // Remove shadow
-              //   elevation: 0,
-              // ),
             ),
             SizedBox(
               height: 20,
@@ -100,12 +94,6 @@ class _TestingState extends State<Testing> {
                   fontSize: 20,
                 ),
               ),
-              // style: ElevatedButton.styleFrom(
-              //   backgroundColor:
-              //       Colors.transparent, // Remove background color
-              //   shadowColor: Colors.transparent, // Remove shadow
-              //   elevation: 0,
-              // ),
             ),
             SizedBox(
               height: 20,
@@ -124,12 +112,6 @@ class _TestingState extends State<Testing> {
                   fontSize: 20,
                 ),
               ),
-              // style: ElevatedButton.styleFrom(
-              //   backgroundColor:
-              //       Colors.transparent, // Remove background color
-              //   shadowColor: Colors.transparent, // Remove shadow
-              //   elevation: 0,
-              // ),
             ),
           ],
         ),

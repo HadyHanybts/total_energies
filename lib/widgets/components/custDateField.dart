@@ -32,12 +32,10 @@ class _CustDatePickerFieldState extends State<CustDatePickerField> {
       lastDate: widget.dateTo, // Enforce max date
     );
 
-    if (pickedDate != null) {
-      setState(() {
-        widget.controller.text =
-            "${pickedDate.year}-${pickedDate.month}-${pickedDate.day}"; // Format date
-      });
-    }
+    setState(() {
+      widget.controller.text =
+          "${pickedDate?.year}-${pickedDate?.month}-${pickedDate?.day}"; // Format date
+    });
   }
 
   @override

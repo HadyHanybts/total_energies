@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-// const Color primaryColor = Color.fromARGB(255, 219, 33, 8);
+const Color primaryColor = Color.fromARGB(255, 219, 33, 8);
 const Color secondColors = Color(0xff232a39);
 const Color btntxtColors = Color.fromARGB(255, 255, 255, 255);
 

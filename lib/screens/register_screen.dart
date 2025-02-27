@@ -47,7 +47,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
     }
     if (!_agreeTerms) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('register_page.terms_verification'.tr)),
+        SnackBar(
+            backgroundColor: Colors.redAccent,
+            content: Text(
+              'register_page.terms_verification'.tr,
+              style: TextStyle(fontSize: 18),
+            )),
       );
       return;
     }
@@ -71,8 +76,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
     print(Res.body);
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
+          backgroundColor: Colors.lightGreen,
           content: Text(
-              success == 200 ? 'register_page.success_verification'.tr : mess)),
+            success == 200 ? 'register_page.success_verification'.tr : mess,
+            style: TextStyle(fontSize: 18),
+          )),
     );
 
     if (success == 200) Navigator.pop(context);
