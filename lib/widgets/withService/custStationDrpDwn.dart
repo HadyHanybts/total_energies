@@ -43,11 +43,23 @@ class _StationDropdownState extends State<StationDropdown> {
   Widget build(BuildContext context) {
     return _isLoading
         ? const CircularProgressIndicator() // Show loader while fetching
-        : DropdownButton<StationModel>(
+        : DropdownButtonFormField<StationModel>(
             value: _selectedStation,
-            hint: const Text("Select a station"),
+            hint: const Text(
+              "Select a station",
+              style: TextStyle(color: Colors.black),
+            ),
             isExpanded: true,
             menuMaxHeight: 200,
+            itemHeight: 50,
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.white, // Background color
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10), // Rounded borders
+                borderSide: BorderSide.none, // Remove default border
+              ),
+            ),
             items: _stations.map((station) {
               return DropdownMenuItem<StationModel>(
                 value: station,
