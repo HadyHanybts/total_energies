@@ -36,6 +36,15 @@ class _LoginScreenState extends State<LoginScreen> {
       return; // Stop execution if validation fails
     }
 
+    // Show the loading screen
+    // showDialog(
+    //   context: context,
+    //   barrierDismissible: false,
+    //   builder: (context) {
+    //     return const LoadingPage(); // Show the loading page
+    //   },
+    // );
+
     LoginModel user = LoginModel(
       userName: _usernameController.text,
       password: _passwordController.text,
@@ -45,14 +54,15 @@ class _LoginScreenState extends State<LoginScreen> {
     int success = Res.statusCode;
     String mess = Res.body;
 
-// Decode the JSON response
+    // Decode the JSON response
     var responseData = jsonDecode(mess); // Converts JSON string into a Map
     String name = responseData['name'];
-        String gender = responseData['gender'];
-
+    String gender = responseData['gender'];
 
     // Navigate to Profile Page
     if (success == 200) {
+      // // Close the loading screen
+      // Navigator.pop(context);
       print(Res.body);
       SharedPreferences prefs = await SharedPreferences.getInstance();
       prefs.setString('username', name);
@@ -63,7 +73,16 @@ class _LoginScreenState extends State<LoginScreen> {
         MaterialPageRoute(builder: (context) => HomeScreen()),
       );
     }
-    // if (success == 200) Navigator.pop(context);
+    else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+            backgroundColor: Colors.redAccent,
+            content: Text(
+              'register_page.terms_verification'.tr,
+              style: TextStyle(fontSize: 18),
+            )),
+      );
+    }
   }
 
   // Phone number validation function

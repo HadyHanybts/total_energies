@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:total_energies/core/constant/colors.dart';
 import 'package:total_energies/models/city_model.dart';

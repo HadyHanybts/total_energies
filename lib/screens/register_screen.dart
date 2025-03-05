@@ -308,12 +308,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   validator: _validateCity,
                 ),
                 SizedBox(height: 20),
-                // TextWithCheckbox(
-                //   text:
-                //       "I agree to send and store my data with Total Energies Marketing Egypt to receive messages and offers by e-mail, SMS, and commercial phone calls for promotions that fit my profile", // The text for the label
-                //   controller:
-                //       _agreeTermsController, // Pass the controller for the text field
-                // ),
                 TextWithCheckbox(
                   text: 'register_page.term&cond'.tr,
                   value: _agreeTerms,

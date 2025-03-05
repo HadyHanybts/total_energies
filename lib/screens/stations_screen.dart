@@ -57,7 +57,7 @@ class _StationListScreenState extends State<StationListScreen> {
                 ? [
                     Text("Hi: $name", style: TextStyle(fontSize: 18)),
                     Spacer(),
-                    Container(
+                    SizedBox(
                       height: kToolbarHeight, // Matches the AppBar's height
                       child: Image.asset(
                         "assets/images/logo.png",
@@ -67,7 +67,7 @@ class _StationListScreenState extends State<StationListScreen> {
                     ),
                   ]
                 : [
-                    Container(
+                    SizedBox(
                       height: kToolbarHeight, // Matches the AppBar's height
                       child: Image.asset(
                         "assets/images/logo.png",
@@ -83,7 +83,7 @@ class _StationListScreenState extends State<StationListScreen> {
                                 fontSize: 18,
                                 color: primaryColor,
                                 fontWeight: FontWeight.bold)),
-                        Text("$name",
+                        Text(name,
                             style: TextStyle(
                                 fontSize: 18,
                                 color: primaryColor,

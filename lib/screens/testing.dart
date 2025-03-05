@@ -35,7 +35,7 @@ class _TestingState extends State<Testing> {
               description: 'This is a description of the card.',
               icon: Icons.favorite,
               total: 3,
-              used: 1,
+              used: 1, onTap: () {},
             ),
             Container(
               margin: EdgeInsets.all(20),
