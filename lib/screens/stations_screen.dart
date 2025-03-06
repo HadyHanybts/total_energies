@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:total_energies/core/constant/colors.dart';
 import 'package:total_energies/models/stations_model.dart';
+import 'package:total_energies/screens/loading_screen.dart';
 import 'package:total_energies/screens/station_details_screen.dart';
 import 'package:total_energies/services/station_service.dart';
 
@@ -48,9 +49,9 @@ class _StationListScreenState extends State<StationListScreen> {
         Directionality.of(context) == TextDirection.rtl; // Check direction
 
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 226, 221, 221),
+      backgroundColor: backgroundColor,
       appBar: AppBar(
-        backgroundColor: secondColors,
+        backgroundColor: backgroundColor,
         title: Container(
           child: Row(
             children: Directionality.of(context) == TextDirection.rtl
@@ -121,7 +122,7 @@ class _StationListScreenState extends State<StationListScreen> {
               future: _stationsFuture,
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(child: CircularProgressIndicator());
+                  return LoadingScreen();
                 } else if (snapshot.hasError) {
                   return Center(child: Text("Failed to load stations"));
                 } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
@@ -142,7 +143,7 @@ class _StationListScreenState extends State<StationListScreen> {
                     return GestureDetector(
                       onTap: () => _navigateToDetails(context, station),
                       child: Card(
-                        color: Colors.grey,
+                        color: Colors.white,
                         margin: EdgeInsets.only(bottom: 15),
                         elevation: 5,
                         shape: RoundedRectangleBorder(

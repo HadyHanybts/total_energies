@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:total_energies/core/constant/colors.dart';
 
 class TranslateButton extends StatelessWidget {
   const TranslateButton({super.key});
@@ -7,6 +8,10 @@ class TranslateButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: primaryColor, // Change this to your desired color
+        // foregroundColor: Colors.white,
+      ),
       onPressed: () {
         // Toggle language between English & Arabic
         var currentLocale = Get.locale?.languageCode;
@@ -20,6 +25,7 @@ class TranslateButton extends StatelessWidget {
         Get.locale?.languageCode == 'ar'
             ? 'English'
             : 'العربية', // Change button text dynamically
+        style: TextStyle(color: Colors.white),
       ),
     );
   }

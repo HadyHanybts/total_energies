@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 // import 'package:intl_phone_field/phone_number.dart';
 import 'package:total_energies/core/constant/colors.dart';
 import 'package:total_energies/services/user_service.dart';
+import 'package:total_energies/widgets/Buttons/trnslt_btn.dart';
 import 'package:total_energies/widgets/components/custCnfrmPassField.dart';
 import 'package:total_energies/widgets/components/custDateField.dart';
 import 'package:total_energies/widgets/components/phone.dart';
@@ -212,10 +213,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
       appBar: AppBar(
         backgroundColor: backgroundColor,
         iconTheme: IconThemeData(color: appbariconColors),
-        // title: Text(
-        //   "Register",
-        //   style: TextStyle(color: appbartxtColors),
-        // ),
+        title: Directionality.of(context) != TextDirection.rtl
+            ? Container(
+                alignment: Alignment.centerRight,
+                child: TranslateButton(),
+              )
+            : Container(
+                alignment: Alignment.centerLeft,
+                child: TranslateButton(),
+              ),
       ),
       body: SingleChildScrollView(
         child: Padding(

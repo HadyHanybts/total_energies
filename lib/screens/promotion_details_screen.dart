@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:total_energies/core/constant/colors.dart';
 import 'package:total_energies/models/promotions_model.dart';
+import 'package:total_energies/screens/testing.dart';
 import 'package:total_energies/widgets/components/activity_indicator.dart';
 import 'package:total_energies/widgets/withService/custStationDrpDwn.dart';
 
@@ -12,7 +13,9 @@ class PromotionDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(promotion.eventTopic)),
+      backgroundColor: backgroundColor,
+      appBar: AppBar(
+          backgroundColor: backgroundColor, title: Text(promotion.eventTopic)),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -49,25 +52,25 @@ class PromotionDetailsScreen extends StatelessWidget {
                   color: primaryColor),
             ),
             const SizedBox(height: 20),
-            Text(
-              "Details",
-              style: TextStyle(fontSize: 16),
-            ),
             Container(
               width: double.infinity,
               padding: EdgeInsets.all(10),
               // margin: const EdgeInsets.symmetric(horizontal: 40),
-              // decoration: BoxDecoration(
-              //   color: Colors.white,
-              //   border: Border.all(
-              //       color: Colors.white, width: 2),
-              //   borderRadius: BorderRadius.circular(15),
-              // ),
-              child: Text(
-                Directionality.of(context) != TextDirection.rtl
-                    ? promotion.eventEnDescription
-                    : promotion.eventDescription,
-                style: TextStyle(fontSize: 16, color: Colors.black),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(color: Colors.white, width: 2),
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Column(
+                children: [
+                  Text(
+                    Directionality.of(context) != TextDirection.rtl
+                        ? promotion.eventEnDescription
+                        : promotion.eventDescription,
+                    style: TextStyle(fontSize: 18, color: Colors.black),
+                  ),
+                  ActivityIndicator(completed: 0, total: promotion.qrMaxUsage),
+                ],
               ),
             ),
             const SizedBox(height: 20),
@@ -77,8 +80,33 @@ class PromotionDetailsScreen extends StatelessWidget {
               },
             ),
             const SizedBox(height: 20),
-            ActivityIndicator(completed: 0, total: promotion.qrMaxUsage),
-            const SizedBox(height: 20),
+            // ActivityIndicator(completed: 0, total: promotion.qrMaxUsage),
+            // const SizedBox(height: 20),
+            Center(
+              child: Container(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            Testing(), // Replace with your page widget
+                      ),
+                    );
+                  },
+                  style: ButtonStyle(
+                    backgroundColor: WidgetStatePropertyAll(primaryColor),
+                    // fixedSize:
+                    //     WidgetStateProperty.all(Size(double.maxFinite, 20)),
+                  ),
+                  child: Text(
+                    'Redeem Promotion',
+                    style: TextStyle(color: btntxtColors, fontSize: 20),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

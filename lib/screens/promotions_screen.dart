@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:total_energies/core/constant/colors.dart';
 import 'package:total_energies/models/promotions_model.dart';
+import 'package:total_energies/screens/loading_screen.dart';
 import 'package:total_energies/services/promotions_service.dart';
 import 'package:total_energies/widgets/components/promo_card.dart';
 import 'package:total_energies/screens/promotion_details_screen.dart';
@@ -27,7 +28,9 @@ class _PromotionsScreenState extends State<PromotionsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       appBar: AppBar(
+        backgroundColor: backgroundColor,
         title: const Text('Promotions'),
         centerTitle: true,
       ),
@@ -51,7 +54,7 @@ class _PromotionsScreenState extends State<PromotionsScreen> {
               future: _futurePromotions,
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(child: CircularProgressIndicator());
+                  return LoadingScreen();
                 } else if (snapshot.hasError) {
                   return Center(child: Text('Error: ${snapshot.error}'));
                 } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
@@ -89,7 +92,7 @@ class _PromotionsScreenState extends State<PromotionsScreen> {
                                 : 'assets/images/logo.png',
                             title: promo.eventTopic,
                             description: promo.eventEnDescription,
-                            icon: Icons.favorite_border_outlined,
+                            // icon: Icons.favorite,
                             total: promo.qrMaxUsage,
                             used: 0,
                             onTap: () {
@@ -102,14 +105,14 @@ class _PromotionsScreenState extends State<PromotionsScreen> {
                               );
                             },
                           )
+                        // arabic card
                         : PromoCard(
                             imageAsset: promo.imagePath.isEmpty
                                 ? promo.imagePath
                                 : 'assets/images/logo1.png',
                             title: promo.eventTopic,
-                            description: promo
-                                .eventDescription, // Arabic description for RTL
-                            icon: Icons.favorite,
+                            description: promo.eventDescription,
+                            // icon: Icons.favorite,
                             total: promo.qrMaxUsage,
                             used: 0,
                             onTap: () {

@@ -56,7 +56,7 @@ class _StationDropdownState extends State<StationDropdown> {
               filled: true,
               fillColor: Colors.white, // Background color
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10), // Rounded borders
+                borderRadius: BorderRadius.circular(30), // Rounded borders
                 borderSide: BorderSide.none, // Remove default border
               ),
             ),

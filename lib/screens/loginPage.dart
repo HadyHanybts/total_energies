@@ -72,8 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
         context,
         MaterialPageRoute(builder: (context) => HomeScreen()),
       );
-    }
-    else {
+    } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
             backgroundColor: Colors.redAccent,
@@ -108,10 +107,15 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: backgroundColor,
-        title: Container(
-          alignment: Alignment.centerRight,
-          child: TranslateButton(),
-        ),
+        title: Directionality.of(context) != TextDirection.rtl
+            ? Container(
+                alignment: Alignment.centerRight,
+                child: TranslateButton(),
+              )
+            : Container(
+                alignment: Alignment.centerLeft,
+                child: TranslateButton(),
+              ),
       ),
       backgroundColor: backgroundColor,
       body: Padding(
