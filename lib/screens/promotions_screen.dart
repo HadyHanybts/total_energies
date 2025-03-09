@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:total_energies/core/constant/colors.dart';
 import 'package:total_energies/models/promotions_model.dart';
 import 'package:total_energies/screens/loading_screen.dart';
@@ -18,11 +19,20 @@ class _PromotionsScreenState extends State<PromotionsScreen> {
   final PromotionsService _promotionsService = PromotionsService();
 
   String selectedFilter = 'All'; // Default filter
+  String name = "";
 
   @override
   void initState() {
     super.initState();
     _futurePromotions = _promotionsService.getPromotions();
+    loadUserData();
+  }
+
+  void loadUserData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      name = prefs.getString('username') ?? "";
+    });
   }
 
   @override
@@ -31,8 +41,34 @@ class _PromotionsScreenState extends State<PromotionsScreen> {
       backgroundColor: backgroundColor,
       appBar: AppBar(
         backgroundColor: backgroundColor,
-        title: const Text('Promotions'),
-        centerTitle: true,
+        title: Container(
+          child: Row(
+            children: [
+              SizedBox(
+                height: kToolbarHeight, // Matches the AppBar's height
+                child: Image.asset(
+                  "assets/images/logo.png",
+                  fit: BoxFit.contain, // Makes image cover entire container
+                ),
+              ),
+              Spacer(),
+              Column(
+                children: [
+                  Text("Hi",
+                      style: TextStyle(
+                          fontSize: 18,
+                          color: primaryColor,
+                          fontWeight: FontWeight.bold)),
+                  Text(name,
+                      style: TextStyle(
+                          fontSize: 18,
+                          color: primaryColor,
+                          fontWeight: FontWeight.bold))
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
       body: Column(
         children: [

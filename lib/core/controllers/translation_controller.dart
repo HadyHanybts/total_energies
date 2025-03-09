@@ -10,9 +10,6 @@ class TranslationController extends Translations {
           'login_page.phone_no_hint': 'Enter your phone number',
           'login_page.password': 'Password',
           'login_page.password_hint': 'Enter your password',
-          'login_page.login_btn': 'Login',
-          'login_page.forget_btn': 'Forget Password ?',
-          'login_page.register_btn': 'Register Now',
           'login_page.all_verification': 'Invalid Credentials',
           'login_page.empty_verification': 'This Field required',
           'login_page.pass_verification': 'Password is required',
@@ -23,9 +20,9 @@ class TranslationController extends Translations {
           'forget_page.phone_no': 'Phone Number',
           'forget_page.empty_verification': 'This Field required',
           'forget_page.phone_no_hint': 'Enter your phone number',
-          'forget_page.forget_btn': 'Send OTP',
-          // Register Page
-          // labels
+          'forget_page.otp_label': 'Enter OTP',
+          'forget_page.otp_hint': 'Enter OTP number',
+          // Register Page labels
           'register_page.username_label': 'Full Name',
           'register_page.phone_no_label': 'Phone Number',
           'register_page.email_label': 'Email',
@@ -36,7 +33,7 @@ class TranslationController extends Translations {
           'register_page.confrim_password_label': 'Confrim Password',
           'register_page.gender_label': 'Select Gender',
           'register_page.gov_label': 'Select Governorate',
-          // hints
+          // Register Page hints
           'register_page.username_hint': 'Enter your full name',
           'register_page.phone_no_hint': 'Enter your phone number',
           'register_page.email_hint': 'Enter your email',
@@ -52,9 +49,7 @@ class TranslationController extends Translations {
           // terms & conditions
           'register_page.term&cond':
               'I agree to send and store my data with Total Energies Marketing Egypt to receive messages and offers by e-mail, SMS, and commercial phone calls for promotions that fit my profile',
-          // Buttons
-          'register_page.reg_btn': 'Register Now',
-          // Verifications
+          // Register Page Verifications
           'register_page.empty_verification': 'This Field required',
           'register_page.terms_verification':
               'You must agree to the terms to register.',
@@ -71,6 +66,37 @@ class TranslationController extends Translations {
           'register_page.year_verification': 'Enter a valid 4-digit year',
           'register_page.year_verification1':
               'Year must be between 1990 and 2030',
+          // Profile page
+          'profile_page.acc_inf': 'Account Information',
+          'profile_page.name': 'Username',
+          'profile_page.phone_number': 'Phone Number',
+          'profile_page.email': 'Email',
+          'profile_page.gender': 'Gender',
+          // buttons
+          'btn.edit_profile': 'Edit Profile',
+          'btn.logout': 'Logout',
+          'btn.save_change': 'Save Changes',
+          'btn.reg_btn': 'Register Now',
+          'btn.login_btn': 'Login',
+          'btn.login_page_reg_btn': 'Register Now',
+          'btn.forget_btn': 'Forget Password ?',
+          'btn.forget_page_forget_btn': 'Send OTP',
+          // Edit Profile page
+          'edit_profile.name': 'Username',
+          'edit_profile.phone_number': 'Phone Number',
+          'edit_profile.email': 'Email',
+          // App Bar
+          'app_bar.hi_txt': 'Hi',
+          // Promotions page
+          'promotion_page.flt_all': 'All',
+          'promotion_page.flt_curr': 'Current',
+          'promotion_page.flt_old': 'Old',
+          // Bottom bar
+          'bottom_bar.promotions': 'Promotions',
+          'bottom_bar.stations': 'Stations',
+          'bottom_bar.profile': 'Profile',
+          // Stations Page
+          'stations_page.search': 'Search Stations',
         },
         'ar_AE': {
           // Login Page
@@ -79,9 +105,6 @@ class TranslationController extends Translations {
           'login_page.phone_no_hint': 'ادخل رقم الهاتف',
           'login_page.password': 'كلمة المرور',
           'login_page.password_hint': 'ادخل كلمة المرور',
-          'login_page.forget_btn': 'نسيت كلمة المرور ؟',
-          'login_page.register_btn': 'تسجيل دخول',
-          'login_page.login_btn': 'دخول',
           'login_page.all_verification': 'بيانات اعتماد غير صالحة',
           'login_page.empty_verification': 'هذا الحقل مطلوب',
           'login_page.pass_verification': 'كلمة المرور مطلوبة',
@@ -92,7 +115,8 @@ class TranslationController extends Translations {
           'forget_page.phone_no': 'رقم الهاتف',
           'forget_page.empty_verification': 'هذا الحقل مطلوب',
           'forget_page.phone_no_hint': 'ادخل رقم الهاتف',
-          'forget_page.forget_btn': 'ارسال OTP',
+          'forget_page.otp_label': 'أدخل  OTP',
+          'forget_page.otp_hint': 'أدخل OTP رقم',
           // Register Page
           // labels
           'register_page.username_label': 'الاسم كامل',
@@ -120,8 +144,6 @@ class TranslationController extends Translations {
           // terms & conditions
           'register_page.term&cond':
               'انا أوافق على إرسال  بياناتي وتخزينها عند شركة توتال إنرجيز للتسويق إيجيبت لتلقي رسائل وعروض عن طريق البريد الإلكتروني و الرسائل القصيرة والاتصالات التجارية التي تناسب ملف التعريف الخاص بي',
-          // Buttons
-          'register_page.reg_btn': 'تسجيل الان',
           // verifications
           'register_page.empty_verification': 'هذا الحقل مطلوب',
           'register_page.terms_verification':
@@ -139,6 +161,37 @@ class TranslationController extends Translations {
           'register_page.year_verification': 'أدخل سنة صالحة مكونة من 4 أرقام',
           'register_page.year_verification1':
               'يجب أن يكون العام بين 1990 و 2030',
+          // Profile page
+          'profile_page.acc_inf': 'معلومات الحساب',
+          'profile_page.name': 'اسم المستخدم',
+          'profile_page.phone_number': 'رقم التليفون',
+          'profile_page.email': 'بريد إلكتروني',
+          'profile_page.gender': 'جنس',
+          // buttons
+          'btn.edit_profile': 'تحرير الملف الشخصي',
+          'btn.logout': 'تسجيل الخروج',
+          'btn.save_change': 'حفظ التغييرات',
+          'btn.reg_btn': 'تسجيل الان',
+          'btn.login_btn': 'دخول',
+          'btn.login_page_reg_btn': 'تسجيل دخول',
+          'btn.forget_btn': 'نسيت كلمة المرور ؟',
+          'btn.forget_page_forget_btn': 'ارسال OTP',
+          // Edit Profile page
+          'edit_profile.name': 'اسم المستخدم',
+          'edit_profile.phone_number': 'رقم التليفون',
+          'edit_profile.email': 'بريد إلكتروني',
+          // App Bar
+          'app_bar.hi_txt': 'أهلاً',
+          // Promotions page
+          'promotion_page.flt_all': 'الجميع',
+          'promotion_page.flt_curr': 'الخالية',
+          'promotion_page.flt_old': 'القديم',
+          // Bottom bar
+          'bottom_bar.promotions': 'عروض',
+          'bottom_bar.stations': 'محطات',
+          'bottom_bar.profile': 'حساب',
+          // Stations Page
+          'stations_page.search': 'البحث في المحطات',
         },
       };
 }

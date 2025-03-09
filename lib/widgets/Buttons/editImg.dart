@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:total_energies/core/constant/colors.dart';
 
 class RoundImageRow extends StatelessWidget {
   final String imageUrl;
@@ -25,6 +26,7 @@ class RoundImageRow extends StatelessWidget {
             children: [
               // Circular Image
               CircleAvatar(
+                backgroundColor: Colors.white,
                 radius: 30,
                 backgroundImage: AssetImage(imageUrl),
               ),
@@ -33,11 +35,11 @@ class RoundImageRow extends StatelessWidget {
                 bottom: -5,
                 right: -5,
                 child: CircleAvatar(
-                  backgroundColor: Colors.white,
+                  backgroundColor: Colors.grey,
                   radius: 12,
                   child: Icon(
                     icon,
-                    color: Colors.blue,
+                    color: primaryColor,
                     size: 16,
                   ),
                 ),
@@ -49,9 +51,7 @@ class RoundImageRow extends StatelessWidget {
           Text(
             text,
             style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ),
+                fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
           ),
         ],
       ),

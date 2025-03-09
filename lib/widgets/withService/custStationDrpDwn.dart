@@ -6,7 +6,7 @@ import 'package:total_energies/services/station_service.dart';
 class StationDropdown extends StatefulWidget {
   final Function(StationModel?)? onChanged; // Callback function
 
-  const StationDropdown({Key? key, this.onChanged}) : super(key: key);
+  const StationDropdown({super.key, this.onChanged});
 
   @override
   _StationDropdownState createState() => _StationDropdownState();

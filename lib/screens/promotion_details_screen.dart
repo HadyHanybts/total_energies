@@ -83,7 +83,7 @@ class PromotionDetailsScreen extends StatelessWidget {
             // ActivityIndicator(completed: 0, total: promotion.qrMaxUsage),
             // const SizedBox(height: 20),
             Center(
-              child: Container(
+              child: SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {

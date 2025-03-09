@@ -65,8 +65,8 @@ class _ForgetPassState extends State<ForgetPass> {
               Header(Title: 'forget_page.title'.tr),
               CustPhoneField(
                 controller: _phoneController,
-                labelText: 'login_page.phone_no'.tr,
-                hintText: 'login_page.phone_no_hint'.tr,
+                labelText: 'forget_page.phone_no'.tr,
+                hintText: 'forget_page.phone_no_hint'.tr,
                 initialCountryCode: "EG",
                 validator: _validatePhone,
               ),
@@ -74,8 +74,8 @@ class _ForgetPassState extends State<ForgetPass> {
                 SizedBox(height: 10),
                 Custtxtfield(
                   controller: _otpController,
-                  labelText: 'Enter OTP',
-                  hintText: 'Enter OTP number',
+                  labelText: 'forget_page.otp_label'.tr,
+                  hintText: 'forget_page.otp_hint'.tr,
                   keyboardType: TextInputType.emailAddress,
                   // validator: _validateEmail,
                   // prefixIcon: Icons.mail,
@@ -88,7 +88,7 @@ class _ForgetPassState extends State<ForgetPass> {
                   backgroundColor: WidgetStatePropertyAll(primaryColor),
                 ),
                 child: Text(
-                  'Send OTP',
+                  'btn.forget_page_forget_btn'.tr,
                   style: TextStyle(color: btntxtColors, fontSize: 20),
                 ),
               ),

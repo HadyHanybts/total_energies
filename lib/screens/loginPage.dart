@@ -7,6 +7,7 @@ import 'package:total_energies/core/constant/colors.dart';
 import 'package:total_energies/models/login_model.dart';
 import 'package:total_energies/screens/forget_pass.dart';
 import 'package:total_energies/screens/home_screen.dart';
+import 'package:total_energies/screens/loading_screen.dart';
 import 'package:total_energies/screens/register_screen.dart';
 import 'package:total_energies/screens/testing.dart';
 import 'package:total_energies/services/login_service.dart';
@@ -36,14 +37,12 @@ class _LoginScreenState extends State<LoginScreen> {
       return; // Stop execution if validation fails
     }
 
-    // Show the loading screen
-    // showDialog(
-    //   context: context,
-    //   barrierDismissible: false,
-    //   builder: (context) {
-    //     return const LoadingPage(); // Show the loading page
-    //   },
-    // );
+    // Show loading screen
+    showDialog(
+      context: context,
+      barrierDismissible: false, // Prevent dismissing by tapping outside
+      builder: (context) => LoadingScreen(),
+    );
 
     LoginModel user = LoginModel(
       userName: _usernameController.text,
@@ -54,20 +53,23 @@ class _LoginScreenState extends State<LoginScreen> {
     int success = Res.statusCode;
     String mess = Res.body;
 
+    Navigator.pop(context); // Hide loading screen
+
     // Decode the JSON response
     var responseData = jsonDecode(mess); // Converts JSON string into a Map
     String name = responseData['name'];
     String gender = responseData['gender'];
+    String email = responseData['email'];
 
     // Navigate to Profile Page
     if (success == 200) {
-      // // Close the loading screen
       // Navigator.pop(context);
       print(Res.body);
       SharedPreferences prefs = await SharedPreferences.getInstance();
       prefs.setString('username', name);
       prefs.setString('phoneno', user.userName);
       prefs.setString('gender', gender);
+      prefs.setString('email', email);
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => HomeScreen()),
@@ -154,7 +156,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     elevation: 0,
                   ),
                   child: Text(
-                    'login_page.forget_btn'.tr,
+                    'btn.forget_btn'.tr,
                     style: TextStyle(
                       color: inputTextColor,
                       fontSize: 16,
@@ -173,7 +175,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   //     WidgetStateProperty.all(Size(double.maxFinite, 20)),
                 ),
                 child: Text(
-                  'login_page.login_btn'.tr,
+                  'btn.login_btn'.tr,
                   style: TextStyle(color: btntxtColors, fontSize: 20),
                 ),
               ),
@@ -194,7 +196,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   elevation: 0,
                 ),
                 child: Text(
-                  'login_page.register_btn'.tr,
+                  'btn.login_page_reg_btn'.tr,
                   style: TextStyle(
                     color: inputTextColor,
                     fontSize: 20,

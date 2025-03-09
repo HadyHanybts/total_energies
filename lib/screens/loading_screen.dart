@@ -36,6 +36,8 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 class LoadingScreen extends StatefulWidget {
+  const LoadingScreen({super.key});
+
   @override
   _LoadingScreenState createState() => _LoadingScreenState();
 }

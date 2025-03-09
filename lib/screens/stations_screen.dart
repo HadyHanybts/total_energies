@@ -54,44 +54,30 @@ class _StationListScreenState extends State<StationListScreen> {
         backgroundColor: backgroundColor,
         title: Container(
           child: Row(
-            children: Directionality.of(context) == TextDirection.rtl
-                ? [
-                    Text("Hi: $name", style: TextStyle(fontSize: 18)),
-                    Spacer(),
-                    SizedBox(
-                      height: kToolbarHeight, // Matches the AppBar's height
-                      child: Image.asset(
-                        "assets/images/logo.png",
-                        fit: BoxFit
-                            .contain, // Makes image cover entire container
-                      ),
-                    ),
-                  ]
-                : [
-                    SizedBox(
-                      height: kToolbarHeight, // Matches the AppBar's height
-                      child: Image.asset(
-                        "assets/images/logo.png",
-                        fit: BoxFit
-                            .contain, // Makes image cover entire container
-                      ),
-                    ),
-                    Spacer(),
-                    Column(
-                      children: [
-                        Text("Hi",
-                            style: TextStyle(
-                                fontSize: 18,
-                                color: primaryColor,
-                                fontWeight: FontWeight.bold)),
-                        Text(name,
-                            style: TextStyle(
-                                fontSize: 18,
-                                color: primaryColor,
-                                fontWeight: FontWeight.bold))
-                      ],
-                    ),
-                  ],
+            children: [
+              SizedBox(
+                height: kToolbarHeight, // Matches the AppBar's height
+                child: Image.asset(
+                  "assets/images/logo.png",
+                  fit: BoxFit.contain, // Makes image cover entire container
+                ),
+              ),
+              Spacer(),
+              Column(
+                children: [
+                  Text("Hi",
+                      style: TextStyle(
+                          fontSize: 18,
+                          color: primaryColor,
+                          fontWeight: FontWeight.bold)),
+                  Text(name,
+                      style: TextStyle(
+                          fontSize: 18,
+                          color: primaryColor,
+                          fontWeight: FontWeight.bold))
+                ],
+              ),
+            ],
           ),
         ),
       ),

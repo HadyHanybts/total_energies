@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:total_energies/core/constant/colors.dart';
+import 'package:total_energies/widgets/Buttons/editImg.dart';
 import 'profile_screen.dart';
 
 class EditProfileScreen extends StatefulWidget {
@@ -13,8 +16,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
-  final TextEditingController _carModelController = TextEditingController();
-  
+  final TextEditingController _genderController = TextEditingController();
 
   @override
   void initState() {
@@ -28,7 +30,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       _nameController.text = prefs.getString('username') ?? "";
       _emailController.text = prefs.getString('email') ?? "";
       _phoneController.text = prefs.getString('phoneno') ?? "";
-      _carModelController.text = prefs.getString('carModel') ?? "";
+      _genderController.text = prefs.getString('gender') ?? "";
     });
   }
 
@@ -37,7 +39,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     await prefs.setString('name', _nameController.text);
     await prefs.setString('email', _emailController.text);
     await prefs.setString('phone', _phoneController.text);
-    await prefs.setString('carModel', _carModelController.text);
+    await prefs.setString('gender', _genderController.text);
 
     Navigator.pushReplacement(
       context,
@@ -48,25 +50,54 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Edit Profile")),
+      backgroundColor: backgroundColor,
+      appBar: AppBar(
+        backgroundColor: backgroundColor,
+        iconTheme: IconThemeData(color: Colors.white),
+        title: Container(
+          child: Row(
+            children: [
+              SizedBox(
+                height: kToolbarHeight, // Matches the AppBar's height
+                child: Image.asset(
+                  "assets/images/logo.png",
+                  fit: BoxFit.contain, // Makes image cover entire container
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
           children: [
             TextField(
                 controller: _nameController,
-                decoration: InputDecoration(labelText: "Name")),
+                decoration: InputDecoration(labelText: 'edit_profile.name'.tr)),
             TextField(
                 controller: _emailController,
-                decoration: InputDecoration(labelText: "Email")),
+                decoration: InputDecoration(labelText: 'edit_profile.email'.tr)),
             TextField(
                 controller: _phoneController,
-                decoration: InputDecoration(labelText: "Phone")),
-            TextField(
-                controller: _carModelController,
-                decoration: InputDecoration(labelText: "carModel")),
+                decoration: InputDecoration(labelText: 'edit_profile.phone_number'.tr)),
+            // TextField(
+            //     controller: _genderController,
+            //     decoration: InputDecoration(labelText: "Gender")),
             SizedBox(height: 20),
-            ElevatedButton(onPressed: saveChanges, child: Text("Save Changes")),
+            ElevatedButton(
+                onPressed: saveChanges,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor:
+                      primaryColor, // Change this to your desired color
+                  foregroundColor: Colors.white, // Text color
+                  padding: EdgeInsets.symmetric(
+                      horizontal: 20, vertical: 12), // Button padding
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10), // Rounded corners
+                  ),
+                ),
+                child: Text('btn.save_change'.tr)),
           ],
         ),
       ),
