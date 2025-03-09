@@ -81,6 +81,7 @@ class TranslationController extends Translations {
           'btn.login_page_reg_btn': 'Register Now',
           'btn.forget_btn': 'Forget Password ?',
           'btn.forget_page_forget_btn': 'Send OTP',
+          'btn.promotions_det_pag_redeem': 'Redeem Promotion',
           // Edit Profile page
           'edit_profile.name': 'Username',
           'edit_profile.phone_number': 'Phone Number',
@@ -97,6 +98,12 @@ class TranslationController extends Translations {
           'bottom_bar.profile': 'Profile',
           // Stations Page
           'stations_page.search': 'Search Stations',
+          'stations_page.station_address': 'No address available',
+          'stations_page.failed_load': 'Failed to load stations',
+          'stations_page.no_stations': 'No stations available',
+          // promotions Details
+          'promotion_det_page.select_station': 'Selected Station:',
+          'promotion_det_page.activity': 'Activity: ',
         },
         'ar_AE': {
           // Login Page
@@ -176,6 +183,7 @@ class TranslationController extends Translations {
           'btn.login_page_reg_btn': 'تسجيل دخول',
           'btn.forget_btn': 'نسيت كلمة المرور ؟',
           'btn.forget_page_forget_btn': 'ارسال OTP',
+          'btn.promotions_det_pag_redeem': 'تفعيل العرض',
           // Edit Profile page
           'edit_profile.name': 'اسم المستخدم',
           'edit_profile.phone_number': 'رقم التليفون',
@@ -192,6 +200,12 @@ class TranslationController extends Translations {
           'bottom_bar.profile': 'حساب',
           // Stations Page
           'stations_page.search': 'البحث في المحطات',
+          'stations_page.station_address': 'لا يوجد عنوان',
+          'stations_page.failed_load': 'فشل في تحميل المحطات',
+          'stations_page.no_stations': 'لا توجد محطات',
+          // promotions Details
+          'promotion_det_page.select_station': 'اختر محطة: ',
+          'promotion_det_page.activity': 'نشاط: ',
         },
       };
 }

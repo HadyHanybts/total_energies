@@ -53,7 +53,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       backgroundColor: backgroundColor,
       appBar: AppBar(
         backgroundColor: backgroundColor,
-        iconTheme: IconThemeData(color: Colors.white),
+        // iconTheme: IconThemeData(color: Colors.white),
         title: Container(
           child: Row(
             children: [
@@ -69,18 +69,29 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(20.0),
         child: Column(
           children: [
             TextField(
                 controller: _nameController,
                 decoration: InputDecoration(labelText: 'edit_profile.name'.tr)),
+            SizedBox(
+              height: 20,
+            ),
             TextField(
                 controller: _emailController,
-                decoration: InputDecoration(labelText: 'edit_profile.email'.tr)),
+                decoration:
+                    InputDecoration(labelText: 'edit_profile.email'.tr)),
+            SizedBox(
+              height: 20,
+            ),
             TextField(
                 controller: _phoneController,
-                decoration: InputDecoration(labelText: 'edit_profile.phone_number'.tr)),
+                decoration:
+                    InputDecoration(labelText: 'edit_profile.phone_number'.tr)),
+            SizedBox(
+              height: 20,
+            ),
             // TextField(
             //     controller: _genderController,
             //     decoration: InputDecoration(labelText: "Gender")),

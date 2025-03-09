@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:total_energies/core/constant/colors.dart';
 
 class ActivityIndicator extends StatelessWidget {
@@ -32,7 +33,7 @@ class ActivityIndicator extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'Activity: ',
+              'promotion_det_page.activity'.tr,
               style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,

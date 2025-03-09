@@ -334,7 +334,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         WidgetStateProperty.all(Size(double.maxFinite, 40)),
                   ),
                   child: Text(
-                    'register_page.reg_btn'.tr,
+                    'btn.reg_btn'.tr,
                     style: TextStyle(color: btntxtColors, fontSize: 20),
                   ),
                 ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:total_energies/core/constant/colors.dart';
 import 'package:total_energies/models/promotions_model.dart';
 import 'package:total_energies/screens/testing.dart';
@@ -15,7 +16,21 @@ class PromotionDetailsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(
-          backgroundColor: backgroundColor, title: Text(promotion.eventTopic)),
+        backgroundColor: backgroundColor,
+        title: Container(
+          child: Row(
+            children: [
+              SizedBox(
+                height: kToolbarHeight, // Matches the AppBar's height
+                child: Image.asset(
+                  "assets/images/logo.png",
+                  fit: BoxFit.contain, // Makes image cover entire container
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -101,7 +116,7 @@ class PromotionDetailsScreen extends StatelessWidget {
                     //     WidgetStateProperty.all(Size(double.maxFinite, 20)),
                   ),
                   child: Text(
-                    'Redeem Promotion',
+                    'btn.promotions_det_pag_redeem'.tr,
                     style: TextStyle(color: btntxtColors, fontSize: 20),
                   ),
                 ),

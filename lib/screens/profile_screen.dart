@@ -51,7 +51,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       backgroundColor: backgroundColor,
       appBar: AppBar(
         backgroundColor: backgroundColor,
-        iconTheme: IconThemeData(color: Colors.white),
+        // iconTheme: IconThemeData(color: Colors.white),
         title: Container(
           child: Row(
             children: [
@@ -136,28 +136,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
               width: double.infinity,
               margin: EdgeInsets.symmetric(vertical: 15),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('profile_page.gender'.tr, style: TextStyle(fontSize: 18)),
-                SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("$gender", style: TextStyle(fontSize: 18)),
-                    Icon(Icons.arrow_forward_rounded)
-                  ],
-                ),
-              ],
-            ),
-            Container(
-              color: Colors.white,
-              height: 3,
-              width: double.infinity,
-              margin: EdgeInsets.symmetric(vertical: 15),
-            ),
+            // Column(
+            //   crossAxisAlignment: CrossAxisAlignment.start,
+            //   children: [
+            //     Text('profile_page.gender'.tr, style: TextStyle(fontSize: 18)),
+            //     SizedBox(
+            //       height: 10,
+            //     ),
+            //     Row(
+            //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //       children: [
+            //         Text("$gender", style: TextStyle(fontSize: 18)),
+            //         Icon(Icons.arrow_forward_rounded)
+            //       ],
+            //     ),
+            //   ],
+            // ),
+            // Container(
+            //   color: Colors.white,
+            //   height: 3,
+            //   width: double.infinity,
+            //   margin: EdgeInsets.symmetric(vertical: 15),
+            // ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

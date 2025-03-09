@@ -1,5 +1,6 @@
 // Station List With Filter and direction
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:total_energies/core/constant/colors.dart';
 import 'package:total_energies/models/stations_model.dart';
@@ -65,7 +66,7 @@ class _StationListScreenState extends State<StationListScreen> {
               Spacer(),
               Column(
                 children: [
-                  Text("Hi",
+                  Text('app_bar.hi_txt'.tr,
                       style: TextStyle(
                           fontSize: 18,
                           color: primaryColor,
@@ -87,7 +88,7 @@ class _StationListScreenState extends State<StationListScreen> {
             padding: EdgeInsets.all(10),
             child: TextField(
               decoration: InputDecoration(
-                labelText: "Search Stations",
+                labelText: 'stations_page.search'.tr,
                 border: OutlineInputBorder(),
                 prefixIcon: isRTL
                     ? null
@@ -110,9 +111,9 @@ class _StationListScreenState extends State<StationListScreen> {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return LoadingScreen();
                 } else if (snapshot.hasError) {
-                  return Center(child: Text("Failed to load stations"));
+                  return Center(child: Text('stations_page.failed_load'.tr));
                 } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                  return Center(child: Text("No stations available"));
+                  return Center(child: Text('stations_page.no_stations'.tr));
                 }
 
                 final stations = snapshot.data!
@@ -136,25 +137,37 @@ class _StationListScreenState extends State<StationListScreen> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: ListTile(
-                          leading: isRTL
+                          leading: Directionality.of(context) !=
+                                  TextDirection.rtl
                               ? null
                               : Icon(Icons.location_on, color: primaryColor),
-                          trailing: isRTL
-                              ? Icon(Icons.location_on, color: primaryColor)
-                              : null,
-                          title: Text(
-                            isRTL
-                                ? station.stationArabicName
-                                : station.stationName, // Adjust language
-                            textAlign: isRTL ? TextAlign.right : TextAlign.left,
-                          ),
-                          subtitle: Text(
-                            isRTL
-                                ? (station.stationAdress ?? "لا يوجد عنوان")
-                                : (station.stationAdress ??
-                                    "No address available"),
-                            textAlign: isRTL ? TextAlign.right : TextAlign.left,
-                          ),
+                          // leading: isRTL
+                          //     ? null
+                          //     : Icon(Icons.location_on, color: primaryColor),
+                          trailing:
+                              Directionality.of(context) != TextDirection.rtl
+                                  ? Icon(Icons.location_on, color: primaryColor)
+                                  : null,
+                          // trailing: isRTL
+                          //     ? Icon(Icons.location_on, color: primaryColor)
+                          //     : null,
+                          title: Directionality.of(context) != TextDirection.rtl
+                              ? Text(station.stationArabicName)
+                              : Text(station.stationName),
+                          // Text(
+                          //   isRTL
+                          //       ? station.stationArabicName
+                          //       : station.stationName, // Adjust language
+                          //   textAlign: isRTL ? TextAlign.right : TextAlign.left,
+                          // ),
+                          subtitle: Text(station.stationAdress ??
+                              'stations_page.station_address'.tr),
+                          // isRTL
+                          // ? (station.stationAdress ?? "لا يوجد عنوان")
+                          // : (station.stationAdress ??
+                          //     "No address available"),
+                          // textAlign: isRTL ? TextAlign.right : TextAlign.left,
+                          // ),
                         ),
                       ),
                     );

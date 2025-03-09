@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:total_energies/models/stations_model.dart';
 import 'package:total_energies/services/station_service.dart';
 // Adjust path as needed
@@ -35,7 +36,9 @@ class _StationDropdownState extends State<StationDropdown> {
       setState(() {
         _isLoading = false;
       });
-      print("Error fetching stations: $e");
+      Directionality.of(context) != TextDirection.rtl
+          ? print("خطأ في جلب المحطات:  $e")
+          : print("Error fetching stations: $e");
     }
   }
 
@@ -45,8 +48,8 @@ class _StationDropdownState extends State<StationDropdown> {
         ? const CircularProgressIndicator() // Show loader while fetching
         : DropdownButtonFormField<StationModel>(
             value: _selectedStation,
-            hint: const Text(
-              "Select a station",
+            hint: Text(
+              'promotion_det_page.select_station'.tr,
               style: TextStyle(color: Colors.black),
             ),
             isExpanded: true,

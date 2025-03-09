@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:total_energies/core/constant/colors.dart';
 import 'package:total_energies/models/promotions_model.dart';
@@ -18,7 +19,7 @@ class _PromotionsScreenState extends State<PromotionsScreen> {
   late Future<List<PromotionsModel>> _futurePromotions;
   final PromotionsService _promotionsService = PromotionsService();
 
-  String selectedFilter = 'All'; // Default filter
+  String selectedFilter = 'promotion_page.flt_all'.tr; // Default filter
   String name = "";
 
   @override
@@ -54,7 +55,7 @@ class _PromotionsScreenState extends State<PromotionsScreen> {
               Spacer(),
               Column(
                 children: [
-                  Text("Hi",
+                  Text('app_bar.hi_txt'.tr,
                       style: TextStyle(
                           fontSize: 18,
                           color: primaryColor,
@@ -78,8 +79,8 @@ class _PromotionsScreenState extends State<PromotionsScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _filterButton('All'),
-                _filterButton('Current'),
+                _filterButton('promotion_page.flt_all'.tr),
+                _filterButton('promotion_page.flt_curr'.tr),
                 _filterButton('Old'),
               ],
             ),
@@ -101,10 +102,10 @@ class _PromotionsScreenState extends State<PromotionsScreen> {
                 List<PromotionsModel> promotions = snapshot.data!;
                 List<PromotionsModel> filteredPromotions =
                     promotions.where((promo) {
-                  if (selectedFilter == 'Current') {
+                  if (selectedFilter == 'promotion_page.flt_curr'.tr) {
                     return promo.qrMaxUsage >
                         0; // Current promotions (still available)
-                  } else if (selectedFilter == 'Old') {
+                  } else if (selectedFilter == 'promotion_page.flt_old'.tr) {
                     return promo.qrMaxUsage == 0; // Old promotions (fully used)
                   }
                   return true; // Show all promotions
