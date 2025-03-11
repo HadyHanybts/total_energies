@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:total_energies/core/constant/colors.dart';
+import 'package:total_energies/screens/profile_page.dart';
 import 'package:total_energies/screens/promotions_screen.dart';
 import 'package:total_energies/screens/stations_screen.dart';
-import 'package:total_energies/screens/profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _pages = [
     PromotionsScreen(),
     StationListScreen(),
-    ProfileScreen(),
+    ProfilePage(),
   ];
 
   void _onItemTapped(int index) {
@@ -36,8 +36,10 @@ class _HomeScreenState extends State<HomeScreen> {
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.local_offer), label: 'bottom_bar.promotions'.tr),
-          BottomNavigationBarItem(icon: Icon(Icons.store), label: 'bottom_bar.stations'.tr),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'bottom_bar.profile'.tr),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.store), label: 'bottom_bar.stations'.tr),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person), label: 'bottom_bar.profile'.tr),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: primaryColor,

@@ -6,14 +6,14 @@ import 'package:total_energies/services/promotions_service.dart';
 import 'package:total_energies/widgets/components/promo_card.dart';
 import 'package:total_energies/screens/promotion_details_screen.dart';
 
-class CurrentPromotionsPage extends StatefulWidget {
-  const CurrentPromotionsPage({super.key});
+class OldPromotionsPage extends StatefulWidget {
+  const OldPromotionsPage({super.key});
 
   @override
-  _CurrentPromotionsPageState createState() => _CurrentPromotionsPageState();
+  _OldPromotionsPageState createState() => _OldPromotionsPageState();
 }
 
-class _CurrentPromotionsPageState extends State<CurrentPromotionsPage> {
+class _OldPromotionsPageState extends State<OldPromotionsPage> {
   late Future<List<PromotionsModel>> _futurePromotions;
   final PromotionsService _promotionsService = PromotionsService();
 
@@ -27,6 +27,23 @@ class _CurrentPromotionsPageState extends State<CurrentPromotionsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
+      // appBar: AppBar(
+      //   backgroundColor: backgroundColor,
+      //   // iconTheme: IconThemeData(color: Colors.white),
+      //   title: Container(
+      //     child: Row(
+      //       children: [
+      //         SizedBox(
+      //           height: kToolbarHeight, // Matches the AppBar's height
+      //           child: Image.asset(
+      //             "assets/images/logo.png",
+      //             fit: BoxFit.contain, // Makes image cover entire container
+      //           ),
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      // ),
       body: FutureBuilder<List<PromotionsModel>>(
         future: _futurePromotions,
         builder: (context, snapshot) {

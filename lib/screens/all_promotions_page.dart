@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:total_energies/core/constant/colors.dart';
 import 'package:total_energies/models/promotions_model.dart';
 import 'package:total_energies/screens/loading_screen.dart';
 import 'package:total_energies/services/promotions_service.dart';
@@ -25,6 +26,7 @@ class _AllPromotionsPageState extends State<AllPromotionsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       body: FutureBuilder<List<PromotionsModel>>(
         future: _futurePromotions,
         builder: (context, snapshot) {

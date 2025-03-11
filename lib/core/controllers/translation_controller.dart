@@ -82,10 +82,13 @@ class TranslationController extends Translations {
           'btn.forget_btn': 'Forget Password ?',
           'btn.forget_page_forget_btn': 'Send OTP',
           'btn.promotions_det_pag_redeem': 'Redeem Promotion',
-          // Edit Profile page
+          'btn.profile_page_history_btn': 'Previous Promotions',
+          // Profile page
           'edit_profile.name': 'Username',
           'edit_profile.phone_number': 'Phone Number',
           'edit_profile.email': 'Email',
+          'profile_page.acc_info':'Account Information',
+          'profile_page.acc_history':'Previous Promotions',
           // App Bar
           'app_bar.hi_txt': 'Hi',
           // Promotions page
@@ -184,15 +187,18 @@ class TranslationController extends Translations {
           'btn.forget_btn': 'نسيت كلمة المرور ؟',
           'btn.forget_page_forget_btn': 'ارسال OTP',
           'btn.promotions_det_pag_redeem': 'تفعيل العرض',
-          // Edit Profile page
+          'btn.profile_page_history_btn': 'العروض السابقة',
+          // Profile page
           'edit_profile.name': 'اسم المستخدم',
           'edit_profile.phone_number': 'رقم التليفون',
           'edit_profile.email': 'بريد إلكتروني',
+          'profile_page.acc_info':'بيانات الحساب',
+          'profile_page.acc_history':'العروض المنهية',
           // App Bar
           'app_bar.hi_txt': 'أهلاً',
           // Promotions page
           'promotion_page.flt_all': 'الجميع',
-          'promotion_page.flt_curr': 'الخالية',
+          'promotion_page.flt_curr': 'الحالية',
           'promotion_page.flt_old': 'القديم',
           // Bottom bar
           'bottom_bar.promotions': 'عروض',

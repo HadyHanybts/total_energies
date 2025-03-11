@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:total_energies/core/constant/colors.dart';
-import 'package:total_energies/screens/all_promotions_page.dart';
-import 'package:total_energies/screens/current_promotions_page.dart';
+import 'package:total_energies/screens/loginPage.dart';
+import 'package:total_energies/screens/old_promotions_page.dart';
+import 'package:total_energies/screens/account_info_page.dart';
 
-class PromotionsScreen extends StatefulWidget {
-  const PromotionsScreen({super.key});
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({super.key});
 
   @override
-  _PromotionsScreenState createState() => _PromotionsScreenState();
+  _ProfilePageState createState() => _ProfilePageState();
 }
 
-class _PromotionsScreenState extends State<PromotionsScreen> {
+class _ProfilePageState extends State<ProfilePage> {
   String name = "";
 
   @override
@@ -26,6 +27,16 @@ class _PromotionsScreenState extends State<PromotionsScreen> {
     setState(() {
       name = prefs.getString('username') ?? "";
     });
+  }
+
+  void logout() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.clear();
+
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => LoginScreen()),
+    );
   }
 
   @override
@@ -46,19 +57,19 @@ class _PromotionsScreenState extends State<PromotionsScreen> {
                 ),
               ),
               const Spacer(),
-              Column(
-                children: [
-                  Text('app_bar.hi_txt'.tr,
-                      style: const TextStyle(
-                          fontSize: 18,
-                          color: primaryColor,
-                          fontWeight: FontWeight.bold)),
-                  Text(name,
-                      style: const TextStyle(
-                          fontSize: 18,
-                          color: primaryColor,
-                          fontWeight: FontWeight.bold))
-                ],
+              ElevatedButton(
+                onPressed: logout,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor:
+                      primaryColor, // Change this to your desired color
+                  foregroundColor: Colors.white, // Text color
+                  padding: EdgeInsets.symmetric(
+                      horizontal: 20, vertical: 12), // Button padding
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10), // Rounded corners
+                  ),
+                ),
+                child: Text("btn.logout".tr),
               ),
             ],
           ),
@@ -69,15 +80,15 @@ class _PromotionsScreenState extends State<PromotionsScreen> {
             labelStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             unselectedLabelStyle: TextStyle(fontSize: 16),
             tabs: [
-              Tab(text: 'promotion_page.flt_all'.tr),
-              Tab(text: 'promotion_page.flt_curr'.tr),
+              Tab(text: 'profile_page.acc_info'.tr),
+              Tab(text: 'profile_page.acc_history'.tr),
             ],
           ),
         ),
         body: const TabBarView(
           children: [
-            AllPromotionsPage(),
-            CurrentPromotionsPage(),
+            AccountInfoPage(),
+            OldPromotionsPage(),
           ],
         ),
       ),
