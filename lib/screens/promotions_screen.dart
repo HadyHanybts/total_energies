@@ -1,12 +1,197 @@
+// import 'package:flutter/material.dart';
+// import 'package:get/get.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
+// import 'package:total_energies/core/constant/colors.dart';
+// import 'package:total_energies/models/promotions_model.dart';
+// import 'package:total_energies/screens/loading_screen.dart';
+// import 'package:total_energies/services/promotions_service.dart';
+// import 'package:total_energies/widgets/components/promo_card.dart';
+// import 'package:total_energies/screens/promotion_details_screen.dart';
+
+// class PromotionsScreen extends StatefulWidget {
+//   const PromotionsScreen({super.key});
+
+//   @override
+//   _PromotionsScreenState createState() => _PromotionsScreenState();
+// }
+
+// class _PromotionsScreenState extends State<PromotionsScreen> {
+//   late Future<List<PromotionsModel>> _futurePromotions;
+//   final PromotionsService _promotionsService = PromotionsService();
+
+//   String selectedFilter = 'promotion_page.flt_all'.tr; // Default filter
+//   String name = "";
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     _futurePromotions = _promotionsService.getPromotions();
+//     loadUserData();
+//   }
+
+//   void loadUserData() async {
+//     SharedPreferences prefs = await SharedPreferences.getInstance();
+//     setState(() {
+//       name = prefs.getString('username') ?? "";
+//     });
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: backgroundColor,
+//       appBar: AppBar(
+//         backgroundColor: backgroundColor,
+//         title: Container(
+//           child: Row(
+//             children: [
+//               SizedBox(
+//                 height: kToolbarHeight, // Matches the AppBar's height
+//                 child: Image.asset(
+//                   "assets/images/logo.png",
+//                   fit: BoxFit.contain, // Makes image cover entire container
+//                 ),
+//               ),
+//               Spacer(),
+//               Column(
+//                 children: [
+//                   Text('app_bar.hi_txt'.tr,
+//                       style: TextStyle(
+//                           fontSize: 18,
+//                           color: primaryColor,
+//                           fontWeight: FontWeight.bold)),
+//                   Text(name,
+//                       style: TextStyle(
+//                           fontSize: 18,
+//                           color: primaryColor,
+//                           fontWeight: FontWeight.bold))
+//                 ],
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//       body: Column(
+//         children: [
+//           // Filter Buttons
+//           Padding(
+//             padding: const EdgeInsets.all(8.0),
+//             child: Row(
+//               mainAxisAlignment: MainAxisAlignment.spaceAround,
+//               children: [
+//                 _filterButton('promotion_page.flt_all'.tr),
+//                 _filterButton('promotion_page.flt_curr'.tr),
+//                 // _filterButton('Old'),
+//               ],
+//             ),
+//           ),
+//           // Promotions List
+//           Expanded(
+//             child: FutureBuilder<List<PromotionsModel>>(
+//               future: _futurePromotions,
+//               builder: (context, snapshot) {
+//                 if (snapshot.connectionState == ConnectionState.waiting) {
+//                   return LoadingScreen();
+//                 } else if (snapshot.hasError) {
+//                   return Center(child: Text('Error: ${snapshot.error}'));
+//                 } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+//                   return const Center(child: Text('No promotions available.'));
+//                 }
+
+//                 // Filter promotions based on selected filter
+//                 List<PromotionsModel> promotions = snapshot.data!;
+//                 List<PromotionsModel> filteredPromotions =
+//                     promotions.where((promo) {
+//                   if (selectedFilter == 'promotion_page.flt_curr'.tr) {
+//                     return promo.qrMaxUsage >
+//                         0; // Current promotions (still available)
+//                   } else if (selectedFilter == 'promotion_page.flt_old'.tr) {
+//                     return promo.qrMaxUsage == 0; // Old promotions (fully used)
+//                   }
+//                   return true; // Show all promotions
+//                 }).toList();
+
+//                 return ListView.builder(
+//                   padding: const EdgeInsets.all(10),
+//                   itemCount: filteredPromotions.length,
+//                   itemBuilder: (context, index) {
+//                     final promo = filteredPromotions[index];
+//                     // bool isCurrent =
+//                     //     selectedFilter == 'promotion_page.flt_curr'.tr;
+//                     return Directionality.of(context) != TextDirection.rtl
+//                         ? PromoCard(
+//                             imageAsset: promo.imagePath.isEmpty
+//                                 ? promo.imagePath
+//                                 : 'assets/images/logo.png',
+//                             title: promo.eventTopic,
+//                             // title: isAll ? '' : promo.eventTopic,
+//                             description: promo.eventEnDescription,
+//                             // icon: Icons.favorite,
+//                             total: promo.qrMaxUsage,
+//                             used: 0,
+//                             onTap: () {
+//                               Navigator.push(
+//                                 context,
+//                                 MaterialPageRoute(
+//                                   builder: (context) =>
+//                                       PromotionDetailsScreen(promotion: promo),
+//                                 ),
+//                               );
+//                             },
+//                           )
+//                         // arabic card
+//                         : PromoCard(
+//                             imageAsset: promo.imagePath.isEmpty
+//                                 ? promo.imagePath
+//                                 : 'assets/images/logo1.png',
+//                             title: promo.eventTopic,
+//                             description: promo.eventDescription,
+//                             // icon: Icons.favorite,
+//                             total: promo.qrMaxUsage,
+//                             used: 0,
+//                             onTap: () {
+//                               Navigator.push(
+//                                 context,
+//                                 MaterialPageRoute(
+//                                   builder: (context) =>
+//                                       PromotionDetailsScreen(promotion: promo),
+//                                 ),
+//                               );
+//                             },
+//                           );
+//                   },
+//                 );
+//               },
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+
+//   // Widget for filter buttons
+//   Widget _filterButton(String filter) {
+//     return ElevatedButton(
+//       onPressed: () {
+//         setState(() {
+//           selectedFilter = filter;
+//         });
+//       },
+//       style: ElevatedButton.styleFrom(
+//         backgroundColor: selectedFilter == filter ? primaryColor : Colors.grey,
+//         foregroundColor: Colors.white,
+//       ),
+//       child: Text(filter),
+//     );
+//   }
+// }
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:total_energies/core/constant/colors.dart';
-import 'package:total_energies/models/promotions_model.dart';
-import 'package:total_energies/screens/loading_screen.dart';
-import 'package:total_energies/services/promotions_service.dart';
-import 'package:total_energies/widgets/components/promo_card.dart';
-import 'package:total_energies/screens/promotion_details_screen.dart';
+import 'package:total_energies/screens/all_promotions_page.dart';
+import 'package:total_energies/screens/current_promotions_page.dart';
 
 class PromotionsScreen extends StatefulWidget {
   const PromotionsScreen({super.key});
@@ -16,16 +201,11 @@ class PromotionsScreen extends StatefulWidget {
 }
 
 class _PromotionsScreenState extends State<PromotionsScreen> {
-  late Future<List<PromotionsModel>> _futurePromotions;
-  final PromotionsService _promotionsService = PromotionsService();
-
-  String selectedFilter = 'promotion_page.flt_all'.tr; // Default filter
   String name = "";
 
   @override
   void initState() {
     super.initState();
-    _futurePromotions = _promotionsService.getPromotions();
     loadUserData();
   }
 
@@ -38,30 +218,31 @@ class _PromotionsScreenState extends State<PromotionsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: backgroundColor,
-      appBar: AppBar(
+    return DefaultTabController(
+      length: 2, // Two tabs (All & Current)
+      child: Scaffold(
         backgroundColor: backgroundColor,
-        title: Container(
-          child: Row(
+        appBar: AppBar(
+          backgroundColor: backgroundColor,
+          title: Row(
             children: [
               SizedBox(
-                height: kToolbarHeight, // Matches the AppBar's height
+                height: kToolbarHeight,
                 child: Image.asset(
                   "assets/images/logo.png",
-                  fit: BoxFit.contain, // Makes image cover entire container
+                  fit: BoxFit.contain,
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               Column(
                 children: [
                   Text('app_bar.hi_txt'.tr,
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 18,
                           color: primaryColor,
                           fontWeight: FontWeight.bold)),
                   Text(name,
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 18,
                           color: primaryColor,
                           fontWeight: FontWeight.bold))
@@ -69,122 +250,99 @@ class _PromotionsScreenState extends State<PromotionsScreen> {
               ),
             ],
           ),
+          bottom: const TabBar(
+            labelColor: primaryColor,
+            unselectedLabelColor: Colors.grey,
+            indicatorColor: primaryColor,
+            labelStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            unselectedLabelStyle: TextStyle(fontSize: 16),
+            tabs: [
+              Tab(text: "All"),
+              Tab(text: "Current"),
+            ],
+          ),
+        ),
+        body: const TabBarView(
+          children: [
+            AllPromotionsPage(),
+            CurrentPromotionsPage(),
+          ],
         ),
       ),
-      body: Column(
-        children: [
-          // Filter Buttons
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                _filterButton('promotion_page.flt_all'.tr),
-                _filterButton('promotion_page.flt_curr'.tr),
-                _filterButton('Old'),
-              ],
-            ),
-          ),
-          // Promotions List
-          Expanded(
-            child: FutureBuilder<List<PromotionsModel>>(
-              future: _futurePromotions,
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return LoadingScreen();
-                } else if (snapshot.hasError) {
-                  return Center(child: Text('Error: ${snapshot.error}'));
-                } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                  return const Center(child: Text('No promotions available.'));
-                }
-
-                // Filter promotions based on selected filter
-                List<PromotionsModel> promotions = snapshot.data!;
-                List<PromotionsModel> filteredPromotions =
-                    promotions.where((promo) {
-                  if (selectedFilter == 'promotion_page.flt_curr'.tr) {
-                    return promo.qrMaxUsage >
-                        0; // Current promotions (still available)
-                  } else if (selectedFilter == 'promotion_page.flt_old'.tr) {
-                    return promo.qrMaxUsage == 0; // Old promotions (fully used)
-                  }
-                  return true; // Show all promotions
-                }).toList();
-
-                return ListView.builder(
-                  padding: const EdgeInsets.all(10),
-                  itemCount: filteredPromotions.length,
-                  itemBuilder: (context, index) {
-                    final promo = filteredPromotions[index];
-
-                    // Default image logic
-                    // String imagePath = promo.imagePath.isEmpty
-                    //     ? promo.imagePath
-                    //     : 'assets/images/logo.png';
-
-                    return Directionality.of(context) != TextDirection.rtl
-                        ? PromoCard(
-                            imageAsset: promo.imagePath.isEmpty
-                                ? promo.imagePath
-                                : 'assets/images/logo.png',
-                            title: promo.eventTopic,
-                            description: promo.eventEnDescription,
-                            // icon: Icons.favorite,
-                            total: promo.qrMaxUsage,
-                            used: 0,
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      PromotionDetailsScreen(promotion: promo),
-                                ),
-                              );
-                            },
-                          )
-                        // arabic card
-                        : PromoCard(
-                            imageAsset: promo.imagePath.isEmpty
-                                ? promo.imagePath
-                                : 'assets/images/logo1.png',
-                            title: promo.eventTopic,
-                            description: promo.eventDescription,
-                            // icon: Icons.favorite,
-                            total: promo.qrMaxUsage,
-                            used: 0,
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      PromotionDetailsScreen(promotion: promo),
-                                ),
-                              );
-                            },
-                          );
-                  },
-                );
-              },
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  // Widget for filter buttons
-  Widget _filterButton(String filter) {
-    return ElevatedButton(
-      onPressed: () {
-        setState(() {
-          selectedFilter = filter;
-        });
-      },
-      style: ElevatedButton.styleFrom(
-        backgroundColor: selectedFilter == filter ? primaryColor : Colors.grey,
-        foregroundColor: Colors.white,
-      ),
-      child: Text(filter),
     );
   }
 }
+
+// 🔹 Reusable Promotions List
+// class PromotionsList extends StatefulWidget {
+//   final bool showTitle;
+
+//   const PromotionsList({super.key, required this.showTitle});
+
+//   @override
+//   _PromotionsListState createState() => _PromotionsListState();
+// }
+
+// class _PromotionsListState extends State<PromotionsList> {
+//   late Future<List<PromotionsModel>> _futurePromotions;
+//   final PromotionsService _promotionsService = PromotionsService();
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     _futurePromotions = _promotionsService.getPromotions();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return FutureBuilder<List<PromotionsModel>>(
+//       future: _futurePromotions,
+//       builder: (context, snapshot) {
+//         if (snapshot.connectionState == ConnectionState.waiting) {
+//           return const LoadingScreen();
+//         } else if (snapshot.hasError) {
+//           return Center(child: Text('Error: ${snapshot.error}'));
+//         } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+//           return const Center(child: Text('No promotions available.'));
+//         }
+
+//         // Filter promotions for "Current" tab
+//         List<PromotionsModel> promotions = snapshot.data!;
+//         List<PromotionsModel> filteredPromotions = promotions.where((promo) {
+//           return widget.showTitle
+//               ? promo.qrMaxUsage > 0 // Only current promotions
+//               : true; // Show all promotions
+//         }).toList();
+
+//         return ListView.builder(
+//           padding: const EdgeInsets.all(10),
+//           itemCount: filteredPromotions.length,
+//           itemBuilder: (context, index) {
+//             final promo = filteredPromotions[index];
+
+//             return PromoCard(
+//               imageAsset: promo.imagePath.isEmpty
+//                   ? promo.imagePath
+//                   : 'assets/images/logo.png',
+//               title: widget.showTitle ? "" : promo.eventTopic,
+//               description: promo.eventEnDescription,
+//               startDate: promo.startDate,
+//               endDate: promo.endDate,
+//               total: promo.qrMaxUsage,
+//               used: 0,
+//               onTap: () {
+//                 Navigator.push(
+//                   context,
+//                   MaterialPageRoute(
+//                     builder: (context) =>
+//                         PromotionDetailsScreen(promotion: promo),
+//                   ),
+//                 );
+//               },
+//             );
+//           },
+//         );
+//       },
+//     );
+//   }
+// }

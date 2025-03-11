@@ -118,9 +118,11 @@ class PromoCard extends StatefulWidget {
   final String imageAsset;
   final String title;
   final String description;
+  final DateTime? startDate;
+  final DateTime? endDate;
   final IconData? icon;
-  final int total;
-  final int used;
+  final int? total;
+  final int? used;
   final VoidCallback onTap; // New parameter
 
   const PromoCard({
@@ -128,9 +130,11 @@ class PromoCard extends StatefulWidget {
     required this.imageAsset,
     required this.title,
     required this.description,
+    this.startDate,
+    this.endDate,
     this.icon,
-    required this.total,
-    required this.used,
+    this.total,
+    this.used,
     required this.onTap, // New parameter
   });
 
@@ -140,6 +144,37 @@ class PromoCard extends StatefulWidget {
 
 class _PromoCardState extends State<PromoCard> {
   Color _iconColor = Colors.white;
+
+  // Widget imageWidget(String imageUrl) {
+  //   if (imageUrl.startsWith("http")) {
+  //     return Image.network(
+  //       imageUrl,
+  //       width: double.infinity,
+  //       height: 200,
+  //       fit: BoxFit.cover,
+  //       loadingBuilder: (context, child, loadingProgress) {
+  //         if (loadingProgress == null) return child;
+  //         return Center(
+  //             child: CircularProgressIndicator()); // Show loader while loading
+  //       },
+  //       errorBuilder: (context, error, stackTrace) {
+  //         return Image.asset(
+  //           'assets/images/logo.png', // Fallback image
+  //           width: double.infinity,
+  //           height: 200,
+  //           fit: BoxFit.cover,
+  //         );
+  //       },
+  //     );
+  //   } else {
+  //     return Image.asset(
+  //       imageUrl,
+  //       width: double.infinity,
+  //       height: 200,
+  //       fit: BoxFit.cover,
+  //     );
+  //   }
+  // }
 
   void _changeIconColor() {
     setState(() {
@@ -163,12 +198,14 @@ class _PromoCardState extends State<PromoCard> {
             borderRadius: BorderRadius.circular(10),
             child: Stack(
               children: [
+                // imageWidget(widget.imageAsset),
                 Image.asset(
                   widget.imageAsset,
                   width: double.infinity,
-                  height: 200,
+                  height: 250,
                   fit: BoxFit.cover,
                 ),
+                // Icon
                 Directionality.of(context) != TextDirection.rtl
                     ? Positioned(
                         right: 8,
@@ -194,6 +231,7 @@ class _PromoCardState extends State<PromoCard> {
                           ),
                         ),
                       ),
+                // text
                 Positioned(
                   bottom: 0,
                   left: 0,
@@ -221,16 +259,40 @@ class _PromoCardState extends State<PromoCard> {
                               widget.description,
                               style: const TextStyle(
                                 color: Colors.black,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 4),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Start Date: ${widget.startDate}",
+                              style: const TextStyle(
                                 fontSize: 14,
                               ),
                             ),
-                            Text(
-                              "${widget.used} / ${widget.total}",
-                              style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "End Date: ${widget.endDate}",
+                                  style: const TextStyle(
+                                    fontSize: 14,
+                                  ),
+                                ),
+                                if (widget.used != null || widget.total != null)
+                                  Text(
+                                    "${widget.used} / ${widget.total}",
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                              ],
+                            )
                           ],
                         ),
                       ],

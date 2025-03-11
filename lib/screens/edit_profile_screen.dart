@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:total_energies/core/constant/colors.dart';
-import 'package:total_energies/widgets/Buttons/editImg.dart';
 import 'profile_screen.dart';
 
 class EditProfileScreen extends StatefulWidget {

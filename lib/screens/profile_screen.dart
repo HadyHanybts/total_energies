@@ -65,7 +65,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Spacer(),
               ElevatedButton(
                 onPressed: logout,
-                child: Text("btn.logout".tr),
                 style: ElevatedButton.styleFrom(
                   backgroundColor:
                       primaryColor, // Change this to your desired color
@@ -76,6 +75,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     borderRadius: BorderRadius.circular(10), // Rounded corners
                   ),
                 ),
+                child: Text("btn.logout".tr),
               ),
             ],
           ),
@@ -101,7 +101,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("$name", style: TextStyle(fontSize: 18)),
+                    Text(name, style: TextStyle(fontSize: 18)),
                     Icon(Icons.arrow_forward_rounded)
                   ],
                 ),
@@ -124,7 +124,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("$phoneno", style: TextStyle(fontSize: 18)),
+                    Text(phoneno, style: TextStyle(fontSize: 18)),
                     Icon(Icons.arrow_forward_rounded)
                   ],
                 ),
@@ -168,7 +168,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("$email", style: TextStyle(fontSize: 18)),
+                    Text(email, style: TextStyle(fontSize: 18)),
                     Icon(Icons.arrow_forward_rounded)
                   ],
                 ),
