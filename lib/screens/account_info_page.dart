@@ -18,6 +18,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
   String phoneno = "";
   String gender = "";
   String email = "";
+  int serial = 0;
 
   @override
   void initState() {
@@ -32,6 +33,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
       phoneno = prefs.getString('phoneno') ?? "";
       gender = prefs.getString('gender') ?? "";
       email = prefs.getString('email') ?? "";
+      serial = prefs.getInt('serial') ?? 0;
     });
   }
 
@@ -115,6 +117,28 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(email, style: TextStyle(fontSize: 18)),
+                    Icon(Icons.arrow_forward_rounded)
+                  ],
+                ),
+              ],
+            ),
+            Container(
+              color: Colors.white,
+              height: 3,
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(vertical: 15),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("User Serial", style: TextStyle(fontSize: 18)),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("$serial", style: TextStyle(fontSize: 18)),
                     Icon(Icons.arrow_forward_rounded)
                   ],
                 ),

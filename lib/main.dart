@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       translations: TranslationController(),
       locale: Locale('en', 'US'), // Default language
       fallbackLocale: Locale('en', 'US'),
-      title: 'Flutter Demo',
+      title: 'Total Energies',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.pink),
         useMaterial3: true,

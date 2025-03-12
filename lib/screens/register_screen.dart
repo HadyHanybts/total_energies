@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-// import 'package:intl_phone_field/phone_number.dart';
 import 'package:total_energies/core/constant/colors.dart';
 import 'package:total_energies/services/user_service.dart';
 import 'package:total_energies/widgets/Buttons/trnslt_btn.dart';

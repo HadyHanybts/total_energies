@@ -30,7 +30,7 @@ class _TestingState extends State<Testing> {
               icon: Icons.edit, // Example icon
             ),
             PromoCard(
-              imageAsset: 'assets/images/logo.png', // Your image asset path
+              imagepath: 'assets/images/logo.png', // Your image asset path
               title: 'Card Title',
               description: 'This is a description of the card.',
               icon: Icons.favorite,

@@ -113,9 +113,12 @@
 // }
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:total_energies/core/constant/colors.dart';
+import 'package:total_energies/screens/promotion_details_screen.dart';
 
 class PromoCard extends StatefulWidget {
-  final String imageAsset;
+  final String imagepath;
   final String title;
   final String description;
   final DateTime? startDate;
@@ -124,10 +127,11 @@ class PromoCard extends StatefulWidget {
   final int? total;
   final int? used;
   final VoidCallback onTap; // New parameter
+  final String? promodet;
 
   const PromoCard({
     super.key,
-    required this.imageAsset,
+    required this.imagepath,
     required this.title,
     required this.description,
     this.startDate,
@@ -136,6 +140,7 @@ class PromoCard extends StatefulWidget {
     this.total,
     this.used,
     required this.onTap, // New parameter
+    this.promodet,
   });
 
   @override
@@ -143,43 +148,27 @@ class PromoCard extends StatefulWidget {
 }
 
 class _PromoCardState extends State<PromoCard> {
-  Color _iconColor = Colors.white;
-
-  // Widget imageWidget(String imageUrl) {
-  //   if (imageUrl.startsWith("http")) {
-  //     return Image.network(
-  //       imageUrl,
-  //       width: double.infinity,
-  //       height: 200,
-  //       fit: BoxFit.cover,
-  //       loadingBuilder: (context, child, loadingProgress) {
-  //         if (loadingProgress == null) return child;
-  //         return Center(
-  //             child: CircularProgressIndicator()); // Show loader while loading
-  //       },
-  //       errorBuilder: (context, error, stackTrace) {
-  //         return Image.asset(
-  //           'assets/images/logo.png', // Fallback image
-  //           width: double.infinity,
-  //           height: 200,
-  //           fit: BoxFit.cover,
-  //         );
-  //       },
-  //     );
-  //   } else {
-  //     return Image.asset(
-  //       imageUrl,
-  //       width: double.infinity,
-  //       height: 200,
-  //       fit: BoxFit.cover,
-  //     );
-  //   }
-  // }
-
-  void _changeIconColor() {
-    setState(() {
-      _iconColor = _iconColor == Colors.white ? Colors.red : Colors.white;
-    });
+  Widget imageWidget(String imageUrl) {
+    return Image.network(
+      'http://92.204.139.204:4335' + imageUrl,
+      // imageUrl,
+      width: double.infinity,
+      height: 350,
+      fit: BoxFit.cover,
+      loadingBuilder: (context, child, loadingProgress) {
+        if (loadingProgress == null) return child;
+        return Center(
+            child: CircularProgressIndicator()); // Show loader while loading
+      },
+      errorBuilder: (context, error, stackTrace) {
+        return Image.asset(
+          'assets/images/logo1.png', // Fallback image
+          width: double.infinity,
+          height: 320,
+          fit: BoxFit.cover,
+        );
+      },
+    );
   }
 
   @override
@@ -198,39 +187,21 @@ class _PromoCardState extends State<PromoCard> {
             borderRadius: BorderRadius.circular(10),
             child: Stack(
               children: [
-                // imageWidget(widget.imageAsset),
-                Image.asset(
-                  widget.imageAsset,
-                  width: double.infinity,
-                  height: 250,
-                  fit: BoxFit.cover,
-                ),
-                // Icon
-                Directionality.of(context) != TextDirection.rtl
-                    ? Positioned(
-                        right: 8,
-                        top: 8,
-                        child: GestureDetector(
-                          onTap: _changeIconColor,
-                          child: Icon(
-                            widget.icon,
-                            color: _iconColor,
-                            size: 30,
-                          ),
-                        ),
-                      )
-                    : Positioned(
-                        left: 8,
-                        top: 8,
-                        child: GestureDetector(
-                          onTap: _changeIconColor,
-                          child: Icon(
-                            widget.icon,
-                            color: _iconColor,
-                            size: 30,
-                          ),
-                        ),
-                      ),
+                // imageWidget('http://92.204.139.204:4335' + widget.imagepath),
+                imageWidget(widget.imagepath),
+                // Image.network(
+                //   'http://92.204.139.204:4335' + widget.imagepath,
+                //   // widget.imagepath,
+                //   width: double.infinity,
+                //   height: 250,
+                //   fit: BoxFit.cover,
+                // ),
+                // Image.asset(
+                //   widget.imageAsset,
+                //   width: double.infinity,
+                //   height: 250,
+                //   fit: BoxFit.cover,
+                // ),
                 // text
                 Positioned(
                   bottom: 0,
@@ -246,7 +217,7 @@ class _PromoCardState extends State<PromoCard> {
                         Text(
                           widget.title,
                           style: const TextStyle(
-                            color: Colors.black,
+                            color: primaryColor,
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                           ),
@@ -258,9 +229,9 @@ class _PromoCardState extends State<PromoCard> {
                             Text(
                               widget.description,
                               style: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 16,
-                              ),
+                                  color: Colors.black,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),
@@ -269,27 +240,39 @@ class _PromoCardState extends State<PromoCard> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Start Date: ${widget.startDate}",
+                              "Start Date: ${widget.startDate.toString().split(' ')[0]}",
+                              // "Start Date: ${widget.startDate}",
                               style: const TextStyle(
-                                fontSize: 14,
-                              ),
+                                  fontSize: 14, fontWeight: FontWeight.bold),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  "End Date: ${widget.endDate}",
+                                  "End Date: ${widget.endDate.toString().split(' ')[0]}",
+                                  // "End Date: ${widget.endDate}",
                                   style: const TextStyle(
-                                    fontSize: 14,
-                                  ),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold),
                                 ),
-                                if (widget.used != null || widget.total != null)
+                                if (widget.used != null ||
+                                    widget.total !=
+                                        null) // Appears only in current
                                   Text(
                                     "${widget.used} / ${widget.total}",
                                     style: const TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
                                     ),
+                                  ),
+                                if (widget.used == null ||
+                                    widget.total == null) // Appears in All
+                                  Text(
+                                    "Apply ${widget.promodet}",
+                                    style: TextStyle(
+                                        color: primaryColor,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
                                   ),
                               ],
                             )

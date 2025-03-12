@@ -60,6 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
     String name = responseData['name'];
     String gender = responseData['gender'];
     String email = responseData['email'];
+    int serial = responseData['serial'];
 
     // Navigate to Profile Page
     if (success == 200) {
@@ -70,6 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
       prefs.setString('phoneno', user.userName);
       prefs.setString('gender', gender);
       prefs.setString('email', email);
+      prefs.setInt('serial', serial);
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => HomeScreen()),

@@ -45,16 +45,17 @@ class _AllPromotionsPageState extends State<AllPromotionsPage> {
             itemCount: promotions.length,
             itemBuilder: (context, index) {
               final promo = promotions[index];
-
+              print(promo);
               return Directionality.of(context) != TextDirection.rtl
                   ? PromoCard(
-                      imageAsset: promo.imagePath.isEmpty
-                          ? promo.imagePath
-                          : 'assets/images/logo.png',
+                      imagepath: promo.imagePath,
                       title: promo.eventTopic,
                       description: promo.eventEnDescription,
                       startDate: promo.startDate,
                       endDate: promo.endDate,
+                      promodet: promo.promotionDetails.isNotEmpty
+                          ? promo.promotionDetails[0].promotionCode
+                          : "N/A",
                       onTap: () {
                         Navigator.push(
                           context,
@@ -66,13 +67,14 @@ class _AllPromotionsPageState extends State<AllPromotionsPage> {
                       },
                     )
                   : PromoCard(
-                      imageAsset: promo.imagePath.isEmpty
-                          ? promo.imagePath
-                          : 'assets/images/logo1.png',
-                      title: promo.eventTopic,
-                      description: promo.eventDescription,
+                      imagepath: promo.imagePath,
+                      title: promo.eventDescription,
+                      description: promo.eventArDescription,
                       startDate: promo.startDate,
                       endDate: promo.endDate,
+                      promodet: promo.promotionDetails.isNotEmpty
+                          ? promo.promotionDetails[0].promotionCode
+                          : "N/A",
                       onTap: () {
                         Navigator.push(
                           context,
