@@ -264,15 +264,46 @@ class _PromotionDetailsScreenState extends State<PromotionDetailsScreen> {
       );
 
       if (response.statusCode == 200) {
-        Get.snackbar("Success", "Registered successfully!",
-            backgroundColor: Colors.green, colorText: Colors.white);
+        Get.snackbar(
+          "Success",
+          "Registered successfully!",
+          duration: Duration(seconds: 5),
+          backgroundColor: Colors.green,
+          colorText: Colors.white,
+          mainButton: TextButton(
+            onPressed: () {
+              Get.closeCurrentSnackbar(); // Closes the snackbar
+            },
+            child: Icon(Icons.close, color: Colors.white),
+          ),
+        );
       } else {
-        Get.snackbar("Error", "Failed to register. Try again.",
-            backgroundColor: Colors.red, colorText: Colors.white);
+        Get.snackbar(
+          "Error",
+          "Failed to register. Try again.",
+          backgroundColor: Colors.red,
+          colorText: Colors.white,
+          mainButton: TextButton(
+            onPressed: () {
+              Get.closeCurrentSnackbar(); // Closes the snackbar
+            },
+            child: Icon(Icons.close, color: Colors.white),
+          ),
+        );
       }
     } catch (e) {
-      Get.snackbar("Error", "Something went wrong!",
-          backgroundColor: Colors.red, colorText: Colors.white);
+      Get.snackbar(
+        "Error",
+        "Something went wrong!",
+        backgroundColor: Colors.red,
+        colorText: Colors.white,
+        mainButton: TextButton(
+          onPressed: () {
+            Get.closeCurrentSnackbar(); // Closes the snackbar
+          },
+          child: Icon(Icons.close, color: Colors.white),
+        ),
+      );
     }
 
     setState(() {
