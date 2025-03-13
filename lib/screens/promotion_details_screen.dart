@@ -220,6 +220,7 @@ import 'package:total_energies/models/promotions_model.dart';
 import 'package:total_energies/widgets/components/activity_indicator.dart';
 import 'package:total_energies/widgets/withService/custStationDrpDwn.dart';
 import 'package:total_energies/services/register_to_promotion_service.dart'; // Import the service
+import 'package:shared_preferences/shared_preferences.dart';
 
 class PromotionDetailsScreen extends StatefulWidget {
   final PromotionsModel promotion;
@@ -235,18 +236,31 @@ class _PromotionDetailsScreenState extends State<PromotionDetailsScreen> {
       RegisterToPromotionService();
   bool _isLoading = false;
 
+  int custserial = 0;
+
+  void loadUserData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      custserial = prefs.getInt('serial') ?? 0;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    loadUserData();
+  }
+
   Future<void> _registerToPromo() async {
     setState(() {
       _isLoading = true;
     });
 
     try {
-      final response = await _registerService.RegisterToPromo(
-        113, // Replace with actual customer ID
-        "111",
-        111,
-        // widget.promotion.promotionCode,
-        // widget.promotion.eventSerial,
+      final response = await _registerService.registerToPromo(
+        custserial,
+        widget.promotion.promotionDetails[0].promotionCode,
+        widget.promotion.serial,
       );
 
       if (response.statusCode == 200) {
@@ -286,7 +300,11 @@ class _PromotionDetailsScreenState extends State<PromotionDetailsScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(child: Image.network(widget.promotion.imagePath)),
+            Center(
+              child: widget.promotion.imagePath.trim().isEmpty
+                  ? Image.network(widget.promotion.imagePath)
+                  : Image.asset("assets/images/logo.png"),
+            ),
             const SizedBox(height: 20),
             Text(
               widget.promotion.eventTopic,
@@ -304,16 +322,37 @@ class _PromotionDetailsScreenState extends State<PromotionDetailsScreen> {
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(widget.promotion.eventEnDescription,
                       style:
                           const TextStyle(fontSize: 18, color: Colors.black)),
-                  ActivityIndicator(
-                      completed: 0, total: widget.promotion.qrMaxUsage),
+                  const SizedBox(height: 10),
+                  Text(
+                      "Start Date: ${widget.promotion.startDate.toString().split(' ')[0]}",
+                      style:
+                          const TextStyle(fontSize: 18, color: Colors.black)),
+                  const SizedBox(height: 10),
+                  Text(
+                      'End date: ${widget.promotion.endDate.toString().split(' ')[0]}',
+                      style:
+                          const TextStyle(fontSize: 18, color: Colors.black)),
+                  // Text(
+                  //     '$custserial+${widget.promotion.serial}+${widget.promotion.promotionDetails[0].promotionCode}',
+                  //     style:
+                  //         const TextStyle(fontSize: 18, color: Colors.black)),
+                  if (widget.promotion.qrMaxUsage != 0)
+                    ActivityIndicator(
+                        completed: 0, total: widget.promotion.qrMaxUsage),
                 ],
               ),
             ),
             const SizedBox(height: 20),
+            Text(
+              "Choose Station to use the promotion",
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 10),
             StationDropdown(
               onChanged: (selectedStation) {
                 print("Selected Station: ${selectedStation?.stationName}");
@@ -325,6 +364,7 @@ class _PromotionDetailsScreenState extends State<PromotionDetailsScreen> {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: _isLoading ? null : _registerToPromo,
+                  // onPressed: _isLoading ? null : _registerToPromo,
                   style: ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(primaryColor),
                   ),

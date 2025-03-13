@@ -118,6 +118,7 @@ import 'package:total_energies/core/constant/colors.dart';
 import 'package:total_energies/screens/promotion_details_screen.dart';
 
 class PromoCard extends StatefulWidget {
+  final int? serial;
   final String imagepath;
   final String title;
   final String description;
@@ -131,6 +132,7 @@ class PromoCard extends StatefulWidget {
 
   const PromoCard({
     super.key,
+    this.serial,
     required this.imagepath,
     required this.title,
     required this.description,
@@ -147,11 +149,15 @@ class PromoCard extends StatefulWidget {
   _PromoCardState createState() => _PromoCardState();
 }
 
+final String baseUrl = "http://92.204.139.204:4335";
+
 class _PromoCardState extends State<PromoCard> {
   Widget imageWidget(String imageUrl) {
+    imageUrl = imageUrl.replaceAll("\\", "/");
+    print('$baseUrl$imageUrl');
     return Image.network(
-      'http://92.204.139.204:4335' + imageUrl,
-      // imageUrl,
+      '$baseUrl/$imageUrl',
+      // 'http://92.204.139.204:4335//Event//1073//Profile.Jpg',
       width: double.infinity,
       height: 350,
       fit: BoxFit.cover,
@@ -162,7 +168,7 @@ class _PromoCardState extends State<PromoCard> {
       },
       errorBuilder: (context, error, stackTrace) {
         return Image.asset(
-          'assets/images/logo1.png', // Fallback image
+          'assets/images/logo.png', // Fallback image
           width: double.infinity,
           height: 320,
           fit: BoxFit.cover,
@@ -189,19 +195,6 @@ class _PromoCardState extends State<PromoCard> {
               children: [
                 // imageWidget('http://92.204.139.204:4335' + widget.imagepath),
                 imageWidget(widget.imagepath),
-                // Image.network(
-                //   'http://92.204.139.204:4335' + widget.imagepath,
-                //   // widget.imagepath,
-                //   width: double.infinity,
-                //   height: 250,
-                //   fit: BoxFit.cover,
-                // ),
-                // Image.asset(
-                //   widget.imageAsset,
-                //   width: double.infinity,
-                //   height: 250,
-                //   fit: BoxFit.cover,
-                // ),
                 // text
                 Positioned(
                   bottom: 0,
@@ -268,7 +261,7 @@ class _PromoCardState extends State<PromoCard> {
                                 if (widget.used == null ||
                                     widget.total == null) // Appears in All
                                   Text(
-                                    "Apply ${widget.promodet}",
+                                    "Apply >",
                                     style: TextStyle(
                                         color: primaryColor,
                                         fontSize: 16,
