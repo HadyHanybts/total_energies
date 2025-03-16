@@ -113,9 +113,7 @@
 // }
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:total_energies/core/constant/colors.dart';
-import 'package:total_energies/screens/promotion_details_screen.dart';
 
 class PromoCard extends StatefulWidget {
   final int? serial;
