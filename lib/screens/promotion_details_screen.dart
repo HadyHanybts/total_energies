@@ -372,9 +372,9 @@ class _PromotionDetailsScreenState extends State<PromotionDetailsScreen> {
                   //     '$custserial+${widget.promotion.serial}+${widget.promotion.promotionDetails[0].promotionCode}',
                   //     style:
                   //         const TextStyle(fontSize: 18, color: Colors.black)),
-                  if (widget.promotion.qrMaxUsage != 0)
-                    ActivityIndicator(
-                        completed: 0, total: widget.promotion.qrMaxUsage),
+                  // if (widget.promotion.qrMaxUsage != 0)
+                  ActivityIndicator(
+                      completed: 0, total: widget.promotion.qrMaxUsage),
                 ],
               ),
             ),

@@ -31,16 +31,80 @@ class _LoginScreenState extends State<LoginScreen> {
 
   final LoginService apiService = LoginService();
 
+  // void login() async {
+  //   // Check if the form is valid before proceeding
+  //   if (!_formKey.currentState!.validate()) {
+  //     return; // Stop execution if validation fails
+  //   }
+
+  //   // Show loading screen
+  //   showDialog(
+  //     context: context,
+  //     barrierDismissible: false, // Prevent dismissing by tapping outside
+  //     builder: (context) => LoadingScreen(),
+  //   );
+
+  //   LoginModel user = LoginModel(
+  //     userName: _usernameController.text,
+  //     password: _passwordController.text,
+  //   );
+
+  //   var Res = await apiService.loginuser(user);
+  //   int success = Res.statusCode;
+  //   String mess = Res.body;
+
+  //   // Navigator.pop(context); // Hide loading screen
+
+  //   // Decode the JSON response
+  //   var responseData = jsonDecode(mess); // Converts JSON string into a Map
+  //   String name = responseData['name'];
+  //   String gender = responseData['gender'];
+  //   String email = responseData['email'];
+  //   int serial = responseData['serial'];
+
+  //   // Navigate to Profile Page
+  //   if (success == 200) {
+  //     Navigator.pop(context);
+  //     print(Res.body);
+  //     SharedPreferences prefs = await SharedPreferences.getInstance();
+  //     prefs.setString('username', name);
+  //     prefs.setString('phoneno', user.userName);
+  //     prefs.setString('gender', gender);
+  //     prefs.setString('email', email);
+  //     prefs.setInt('serial', serial);
+  //     Navigator.pushReplacement(
+  //       context,
+  //       MaterialPageRoute(builder: (context) => HomeScreen()),
+  //     );
+  //   } else {
+  //     Navigator.pop(context);
+  //     String errorMessage =
+  //         responseData['message'] ?? 'An error occurred. Please try again.';
+  //     ScaffoldMessenger.of(context).showSnackBar(
+  //       SnackBar(
+  //         backgroundColor: Colors.redAccent,
+  //         content: Text(
+  //           errorMessage,
+  //           style: TextStyle(fontSize: 18),
+  //         ),
+  //       ),
+  //     );
+  //     Navigator.pushReplacement(
+  //       context,
+  //       MaterialPageRoute(builder: (context) => LoginScreen()),
+  //     );
+  //   }
+  // }
+
   void login() async {
-    // Check if the form is valid before proceeding
     if (!_formKey.currentState!.validate()) {
-      return; // Stop execution if validation fails
+      return;
     }
 
     // Show loading screen
     showDialog(
       context: context,
-      barrierDismissible: false, // Prevent dismissing by tapping outside
+      barrierDismissible: false,
       builder: (context) => LoadingScreen(),
     );
 
@@ -49,41 +113,56 @@ class _LoginScreenState extends State<LoginScreen> {
       password: _passwordController.text,
     );
 
-    var Res = await apiService.loginuser(user);
-    int success = Res.statusCode;
-    String mess = Res.body;
+    try {
+      var response = await apiService.loginuser(user);
+      Navigator.pop(context); // Hide loading screen
 
-    Navigator.pop(context); // Hide loading screen
+      print("Response Status Code: ${response.statusCode}");
+      print("Response Body: ${response.body}");
 
-    // Decode the JSON response
-    var responseData = jsonDecode(mess); // Converts JSON string into a Map
-    String name = responseData['name'];
-    String gender = responseData['gender'];
-    String email = responseData['email'];
-    int serial = responseData['serial'];
+      if (response.statusCode == 200) {
+        var responseData = jsonDecode(response.body);
 
-    // Navigate to Profile Page
-    if (success == 200) {
-      // Navigator.pop(context);
-      print(Res.body);
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      prefs.setString('username', name);
-      prefs.setString('phoneno', user.userName);
-      prefs.setString('gender', gender);
-      prefs.setString('email', email);
-      prefs.setInt('serial', serial);
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => HomeScreen()),
-      );
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        prefs.setString('username', responseData['name']);
+        prefs.setString('phoneno', user.userName);
+        prefs.setString('gender', responseData['gender']);
+        prefs.setString('email', responseData['email']);
+        prefs.setInt('serial', responseData['serial']);
+
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => HomeScreen()),
+        );
+      } else {
+        var responseData = jsonDecode(response.body);
+        String errorMessage = responseData['message'] ?? 'Invalid credentials.';
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
             backgroundColor: Colors.redAccent,
             content: Text(
-              'register_page.terms_verification'.tr,
-              style: TextStyle(fontSize: 18),
-            )),
+              errorMessage,
+              style: TextStyle(fontSize: 18, color: Colors.white),
+            ),
+          ),
+        );
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => LoginScreen()),
+        );
+      }
+    } catch (e) {
+      print("Login Error: $e");
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: Colors.redAccent,
+          content: Text(
+            // 'A network error occurred. Please try again.',
+            'Invalid Username or Password',
+            style: TextStyle(fontSize: 18, color: Colors.white),
+          ),
+        ),
       );
     }
   }
@@ -211,27 +290,27 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(
                 height: 20,
               ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Testing()),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor:
-                      Colors.transparent, // Remove background color
-                  shadowColor: Colors.transparent, // Remove shadow
-                  elevation: 0,
-                ),
-                child: Text(
-                  "Testing",
-                  style: TextStyle(
-                    color: Colors.transparent,
-                    fontSize: 15,
-                  ),
-                ),
-              ),
+              // ElevatedButton(
+              //   onPressed: () {
+              //     Navigator.push(
+              //       context,
+              //       MaterialPageRoute(builder: (context) => Testing()),
+              //     );
+              //   },
+              //   style: ElevatedButton.styleFrom(
+              //     backgroundColor:
+              //         Colors.transparent, // Remove background color
+              //     shadowColor: Colors.transparent, // Remove shadow
+              //     elevation: 0,
+              //   ),
+              //   child: Text(
+              //     "Testing",
+              //     style: TextStyle(
+              //       color: Colors.transparent,
+              //       fontSize: 15,
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),
