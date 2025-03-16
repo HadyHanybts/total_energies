@@ -3,9 +3,13 @@ import 'package:http/http.dart' as http;
 import '../models/user_model.dart';
 
 class UserService {
-  final String baseUrl = "http://92.204.139.204:4335/api/Customer/CustomerLogin";
+  // final String baseUrl = "http://92.204.139.204:4335/api/Customer/CustomerLogin";
+  // final String regUrl =
+  //     "http://92.204.139.204:4335/api/Customer/CustomerRegisteration";
+  final String baseUrl =
+      "https://www.besttopsystems.net:4336/api/Customer/CustomerLogin";
   final String regUrl =
-      "http://92.204.139.204:4335/api/Customer/CustomerRegisteration";
+      "https://www.besttopsystems.net:4336/api/Customer/CustomerRegisteration";
 
   // Create (Register)
   Future<http.Response> registerUser(UserModel user) async {
@@ -15,7 +19,7 @@ class UserService {
       body: jsonEncode(user.toJson()),
     );
 
-    return response ;
+    return response;
   }
 
   // Read (Get Users)

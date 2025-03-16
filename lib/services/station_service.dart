@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:total_energies/models/stations_model.dart';
 
 class StationService {
-  final String baseUrl = "http://92.204.139.204:4335/api/Station/GetAll";
+  final String baseUrl = "https://www.besttopsystems.net:4336/api/Station/GetAll";
 
   Future<List<StationModel>> getStations() async {
     final response = await http.get(Uri.parse(baseUrl));

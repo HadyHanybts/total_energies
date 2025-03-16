@@ -3,7 +3,9 @@ import 'package:http/http.dart' as http;
 import 'package:total_energies/models/city_model.dart';
 
 class CityService {
-  final String baseUrl = "http://92.204.139.204:4335/api/City/GetAll";
+  // final String baseUrl = "http://92.204.139.204:4335/api/City/GetAll";
+
+  final String baseUrl = "https://www.besttopsystems.net:4336/api/City/GetAll";
 
   // Read (Get Users)
   Future<List<CityModel>> getUsers() async {
