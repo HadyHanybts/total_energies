@@ -5,15 +5,15 @@ import 'package:intl_phone_field/phone_number.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:total_energies/core/constant/colors.dart';
 import 'package:total_energies/models/login_model.dart';
-import 'package:total_energies/screens/forget_pass.dart';
+import 'package:total_energies/screens/Auth/forget_pass.dart';
 import 'package:total_energies/screens/home_screen.dart';
 import 'package:total_energies/screens/loading_screen.dart';
-import 'package:total_energies/screens/register_screen.dart';
+import 'package:total_energies/screens/Auth/register_screen.dart';
 import 'package:total_energies/screens/testing.dart';
 import 'package:total_energies/services/login_service.dart';
 import 'package:total_energies/widgets/auth/header.dart';
-import 'package:total_energies/widgets/components/custPassField.dart';
-import 'package:total_energies/widgets/components/phone.dart';
+import 'package:total_energies/widgets/auth/custPassField.dart';
+import 'package:total_energies/widgets/auth/phone.dart';
 import 'package:total_energies/widgets/Buttons/trnslt_btn.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -290,27 +290,27 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(
                 height: 20,
               ),
-              // ElevatedButton(
-              //   onPressed: () {
-              //     Navigator.push(
-              //       context,
-              //       MaterialPageRoute(builder: (context) => Testing()),
-              //     );
-              //   },
-              //   style: ElevatedButton.styleFrom(
-              //     backgroundColor:
-              //         Colors.transparent, // Remove background color
-              //     shadowColor: Colors.transparent, // Remove shadow
-              //     elevation: 0,
-              //   ),
-              //   child: Text(
-              //     "Testing",
-              //     style: TextStyle(
-              //       color: Colors.transparent,
-              //       fontSize: 15,
-              //     ),
-              //   ),
-              // ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Testing()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor:
+                      Colors.transparent, // Remove background color
+                  shadowColor: Colors.transparent, // Remove shadow
+                  elevation: 0,
+                ),
+                child: Text(
+                  "Testing",
+                  style: TextStyle(
+                    color: Colors.transparent,
+                    fontSize: 15,
+                  ),
+                ),
+              ),
             ],
           ),
         ),

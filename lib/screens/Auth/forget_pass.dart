@@ -4,8 +4,8 @@ import 'package:intl_phone_field/phone_number.dart';
 import 'package:total_energies/core/constant/colors.dart';
 import 'package:total_energies/services/user_service.dart';
 import 'package:total_energies/widgets/auth/header.dart';
-import 'package:total_energies/widgets/components/custTxtField.dart';
-import 'package:total_energies/widgets/components/phone.dart';
+import 'package:total_energies/widgets/auth/custTxtField.dart';
+import 'package:total_energies/widgets/auth/phone.dart';
 
 class ForgetPass extends StatefulWidget {
   const ForgetPass({super.key});

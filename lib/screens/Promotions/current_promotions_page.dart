@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:total_energies/core/constant/colors.dart';
 import 'package:total_energies/models/promotions_model.dart';
 import 'package:total_energies/screens/loading_screen.dart';
+import 'package:total_energies/services/get_curr_promo_service.dart';
 import 'package:total_energies/services/promotions_service.dart';
-import 'package:total_energies/widgets/components/promo_card.dart';
-import 'package:total_energies/screens/promotion_details_screen.dart';
+import 'package:total_energies/widgets/Promotions/curr_promo_card.dart';
+import 'package:total_energies/screens/Promotions/promotion_details_screen.dart';
 
 class CurrentPromotionsPage extends StatefulWidget {
   const CurrentPromotionsPage({super.key});
@@ -15,12 +17,22 @@ class CurrentPromotionsPage extends StatefulWidget {
 
 class _CurrentPromotionsPageState extends State<CurrentPromotionsPage> {
   late Future<List<PromotionsModel>> _futurePromotions;
-  final PromotionsService _promotionsService = PromotionsService();
+  // final PromotionsService _promotionsService = PromotionsService();
+  final GetCurrPromoService _promotionsService = GetCurrPromoService();
+
+  int serial = 0;
+
+  void loadUserData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      serial = prefs.getInt('serial') ?? 0;
+    });
+  }
 
   @override
   void initState() {
     super.initState();
-    _futurePromotions = _promotionsService.getPromotions();
+    _futurePromotions = _promotionsService.getCurrPromotions(serial);
   }
 
   @override
@@ -47,7 +59,7 @@ class _CurrentPromotionsPageState extends State<CurrentPromotionsPage> {
               final promo = promotions[index];
 
               return Directionality.of(context) != TextDirection.rtl
-                  ? PromoCard(
+                  ? CurrPromoCard(
                       imagepath: promo.imagePath,
                       title: promo.eventTopic,
                       description: promo.eventEnDescription,
@@ -65,7 +77,7 @@ class _CurrentPromotionsPageState extends State<CurrentPromotionsPage> {
                         );
                       },
                     )
-                  : PromoCard(
+                  : CurrPromoCard(
                       imagepath: promo.imagePath,
                       title: promo.eventTopic,
                       description: promo.eventDescription,

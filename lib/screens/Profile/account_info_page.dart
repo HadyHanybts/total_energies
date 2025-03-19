@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:total_energies/core/constant/colors.dart';
-import 'package:total_energies/screens/edit_profile_screen.dart';
-import 'package:total_energies/screens/loginPage.dart';
+import 'package:total_energies/screens/Profile/edit_profile_screen.dart';
+import 'package:total_energies/screens/Auth/loginPage.dart';
 import 'package:total_energies/widgets/Buttons/editImg.dart';
 
 class AccountInfoPage extends StatefulWidget {

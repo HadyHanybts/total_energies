@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:total_energies/core/constant/colors.dart';
-import 'package:total_energies/screens/profile_page.dart';
-import 'package:total_energies/screens/promotions_screen.dart';
-import 'package:total_energies/screens/stations_screen.dart';
+import 'package:total_energies/screens/Profile/profile_page.dart';
+import 'package:total_energies/screens/Promotions/promotions_screen.dart';
+import 'package:total_energies/screens/Stations/stations_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

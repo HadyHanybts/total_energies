@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:total_energies/screens/home_screen.dart';
-import 'package:total_energies/screens/promotions_screen.dart';
-import 'package:total_energies/screens/stations_screen.dart';
+import 'package:total_energies/screens/Promotions/promotions_screen.dart';
+import 'package:total_energies/screens/Stations/stations_screen.dart';
 import 'package:total_energies/widgets/Buttons/editImg.dart';
-import 'package:total_energies/widgets/components/circle.dart';
-import 'package:total_energies/widgets/components/promo_card.dart';
+import 'package:total_energies/widgets/Promotions/promo_card.dart';
 
 class Testing extends StatefulWidget {
   const Testing({super.key});
@@ -36,31 +35,6 @@ class _TestingState extends State<Testing> {
               icon: Icons.favorite,
               total: 3,
               used: 1, onTap: () {},
-            ),
-            Container(
-              margin: EdgeInsets.all(20),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: PromoCircle(
-                      backgroundColor: Colors.blue,
-                      icon: Icons.location_on,
-                    ),
-                  ),
-                  Expanded(
-                    child: PromoCircle(
-                      backgroundColor: Colors.green,
-                      icon: Icons.car_repair,
-                    ),
-                  ),
-                  Expanded(
-                    child: PromoCircle(
-                      backgroundColor: Colors.red,
-                      icon: Icons.settings,
-                    ),
-                  ),
-                ],
-              ),
             ),
             ElevatedButton(
               onPressed: () {

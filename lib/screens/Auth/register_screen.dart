@@ -3,15 +3,15 @@ import 'package:get/get.dart';
 import 'package:total_energies/core/constant/colors.dart';
 import 'package:total_energies/services/user_service.dart';
 import 'package:total_energies/widgets/Buttons/trnslt_btn.dart';
-import 'package:total_energies/widgets/components/custCnfrmPassField.dart';
-import 'package:total_energies/widgets/components/custDateField.dart';
-import 'package:total_energies/widgets/components/phone.dart';
-import 'package:total_energies/widgets/components/textWithCheckbox.dart';
+import 'package:total_energies/widgets/auth/custCnfrmPassField.dart';
+import 'package:total_energies/widgets/auth/custDateField.dart';
+import 'package:total_energies/widgets/auth/phone.dart';
+import 'package:total_energies/widgets/auth/textWithCheckbox.dart';
 import 'package:total_energies/widgets/withService/custCityDrpDwn.dart';
-import 'package:total_energies/widgets/components/custPassField.dart';
-import 'package:total_energies/widgets/components/custRowRdioBtn.dart';
-import 'package:total_energies/widgets/components/custTxtField.dart';
-import '../models/user_model.dart';
+import 'package:total_energies/widgets/auth/custPassField.dart';
+import 'package:total_energies/widgets/Buttons/custRowRdioBtn.dart';
+import 'package:total_energies/widgets/auth/custTxtField.dart';
+import '../../models/user_model.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});

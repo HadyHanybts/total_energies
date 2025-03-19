@@ -2,18 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:total_energies/core/constant/colors.dart';
-import 'package:total_energies/screens/loginPage.dart';
-import 'package:total_energies/screens/old_promotions_page.dart';
-import 'package:total_energies/screens/account_info_page.dart';
+import 'package:total_energies/screens/Promotions/all_promotions_page.dart';
+import 'package:total_energies/screens/Promotions/current_promotions_page.dart';
 
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+class PromotionsScreen extends StatefulWidget {
+  const PromotionsScreen({super.key});
 
   @override
-  _ProfilePageState createState() => _ProfilePageState();
+  _PromotionsScreenState createState() => _PromotionsScreenState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _PromotionsScreenState extends State<PromotionsScreen> {
   String name = "";
 
   @override
@@ -27,16 +26,6 @@ class _ProfilePageState extends State<ProfilePage> {
     setState(() {
       name = prefs.getString('username') ?? "";
     });
-  }
-
-  void logout() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.clear();
-
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => LoginScreen()),
-    );
   }
 
   @override
@@ -57,19 +46,19 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
               const Spacer(),
-              ElevatedButton(
-                onPressed: logout,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor:
-                      primaryColor, // Change this to your desired color
-                  foregroundColor: Colors.white, // Text color
-                  padding: EdgeInsets.symmetric(
-                      horizontal: 20, vertical: 12), // Button padding
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10), // Rounded corners
-                  ),
-                ),
-                child: Text("btn.logout".tr),
+              Column(
+                children: [
+                  Text('app_bar.hi_txt'.tr,
+                      style: const TextStyle(
+                          fontSize: 18,
+                          color: primaryColor,
+                          fontWeight: FontWeight.bold)),
+                  Text(name,
+                      style: const TextStyle(
+                          fontSize: 18,
+                          color: primaryColor,
+                          fontWeight: FontWeight.bold))
+                ],
               ),
             ],
           ),
@@ -80,15 +69,15 @@ class _ProfilePageState extends State<ProfilePage> {
             labelStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             unselectedLabelStyle: TextStyle(fontSize: 16),
             tabs: [
-              Tab(text: 'profile_page.acc_info'.tr),
-              Tab(text: 'profile_page.acc_history'.tr),
+              Tab(text: 'promotion_page.flt_all'.tr),
+              Tab(text: 'promotion_page.flt_curr'.tr),
             ],
           ),
         ),
         body: const TabBarView(
           children: [
-            AccountInfoPage(),
-            OldPromotionsPage(),
+            AllPromotionsPage(),
+            CurrentPromotionsPage(),
           ],
         ),
       ),

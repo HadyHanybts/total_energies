@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:total_energies/core/constant/colors.dart';
 import 'package:total_energies/models/stations_model.dart';
 import 'package:total_energies/screens/loading_screen.dart';
-import 'package:total_energies/screens/station_details_screen.dart';
+import 'package:total_energies/screens/Stations/station_details_screen.dart';
 import 'package:total_energies/services/station_service.dart';
 
 class StationListScreen extends StatefulWidget {

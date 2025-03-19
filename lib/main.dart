@@ -3,7 +3,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:total_energies/core/controllers/translation_controller.dart';
 import 'package:total_energies/screens/home_screen.dart';
-import 'package:total_energies/screens/loginPage.dart';
+import 'package:total_energies/screens/Auth/loginPage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

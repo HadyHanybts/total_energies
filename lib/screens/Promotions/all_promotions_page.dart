@@ -3,8 +3,8 @@ import 'package:total_energies/core/constant/colors.dart';
 import 'package:total_energies/models/promotions_model.dart';
 import 'package:total_energies/screens/loading_screen.dart';
 import 'package:total_energies/services/promotions_service.dart';
-import 'package:total_energies/widgets/components/promo_card.dart';
-import 'package:total_energies/screens/promotion_details_screen.dart';
+import 'package:total_energies/widgets/Promotions/all_promo_card.dart';
+import 'package:total_energies/screens/Promotions/promotion_details_screen.dart';
 
 class AllPromotionsPage extends StatefulWidget {
   const AllPromotionsPage({super.key});
@@ -47,7 +47,7 @@ class _AllPromotionsPageState extends State<AllPromotionsPage> {
               final promo = promotions[index];
               print(promo);
               return Directionality.of(context) != TextDirection.rtl
-                  ? PromoCard(
+                  ? AllPromoCard(
                       serial: promo.serial,
                       imagepath: promo.imagePath,
                       title: promo.eventTopic,
@@ -67,7 +67,7 @@ class _AllPromotionsPageState extends State<AllPromotionsPage> {
                         );
                       },
                     )
-                  : PromoCard(
+                  : AllPromoCard(
                       serial: promo.serial,
                       imagepath: promo.imagePath,
                       title: promo.eventDescription,
