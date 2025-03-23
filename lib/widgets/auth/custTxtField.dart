@@ -9,6 +9,7 @@ class Custtxtfield extends StatelessWidget {
   final String? Function(String?)? validator;
   final IconData? prefixIcon;
   final IconData? suffixIcon; // Optional suffix icon
+  final bool showAsterisk;
 
   const Custtxtfield({
     super.key,
@@ -19,7 +20,26 @@ class Custtxtfield extends StatelessWidget {
     this.validator,
     this.prefixIcon,
     this.suffixIcon, // Optional validation function
+    this.showAsterisk = false,
   });
+
+  // Getter for formatted label with optional asterisk
+  Widget get formattedLabel {
+    return RichText(
+      text: TextSpan(
+        text: labelText,
+        style: TextStyle(color: inputTextColor, fontSize: 16),
+        children: showAsterisk
+            ? [
+                TextSpan(
+                  text: ' *',
+                  style: TextStyle(color: Colors.red, fontSize: 16),
+                ),
+              ]
+            : [],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +50,8 @@ class Custtxtfield extends StatelessWidget {
         keyboardType: keyboardType,
         style: TextStyle(color: inputTextColor),
         decoration: InputDecoration(
-          labelText: labelText,
+          // labelText: labelText,
+          label: showAsterisk ? formattedLabel : Text(labelText),
           labelStyle: TextStyle(color: inputTextColor),
           hintText: hintText,
           hintStyle: TextStyle(color: inputTextColor),

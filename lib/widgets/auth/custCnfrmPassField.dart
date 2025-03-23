@@ -8,6 +8,7 @@ class CustConfirmPasswordField extends StatefulWidget {
   final String labelText;
   final String hintText;
   final String? Function(String?)? validator;
+  final bool showAsterisk;
 
   const CustConfirmPasswordField({
     super.key,
@@ -16,6 +17,7 @@ class CustConfirmPasswordField extends StatefulWidget {
     required this.labelText,
     required this.hintText,
     this.validator,
+    this.showAsterisk = false,
   });
 
   @override
@@ -26,6 +28,24 @@ class CustConfirmPasswordField extends StatefulWidget {
 class _CustConfirmPasswordFieldState extends State<CustConfirmPasswordField> {
   bool _isObscured = true; // Controls password visibility
 
+  // Getter for formatted label with optional asterisk
+  Widget get formattedLabel {
+    return RichText(
+      text: TextSpan(
+        text: widget.labelText,
+        style: TextStyle(color: inputTextColor, fontSize: 16),
+        children: widget.showAsterisk
+            ? [
+                TextSpan(
+                  text: ' *',
+                  style: TextStyle(color: Colors.red, fontSize: 16),
+                ),
+              ]
+            : [],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -35,7 +55,8 @@ class _CustConfirmPasswordFieldState extends State<CustConfirmPasswordField> {
         obscureText: _isObscured,
         style: TextStyle(color: inputTextColor), // Toggle password visibility
         decoration: InputDecoration(
-          labelText: widget.labelText,
+          // labelText: widget.labelText,
+          label: widget.showAsterisk ? formattedLabel : Text(widget.labelText),
           labelStyle: TextStyle(color: inputTextColor),
           hintText: widget.hintText,
           hintStyle: TextStyle(color: inputTextColor),

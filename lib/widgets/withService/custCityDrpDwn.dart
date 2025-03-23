@@ -8,6 +8,7 @@ class CustCityDropdown extends StatefulWidget {
   final String labelText;
   final String hintText;
   final String? Function(String?) validator;
+  final bool showAsterisk;
 
   const CustCityDropdown({
     super.key,
@@ -15,6 +16,7 @@ class CustCityDropdown extends StatefulWidget {
     required this.labelText,
     required this.hintText,
     required this.validator,
+    this.showAsterisk = false,
   });
 
   @override
@@ -25,6 +27,24 @@ class _CustCityDropdownState extends State<CustCityDropdown> {
   final CityService _cityService = CityService();
   List<CityModel> _cities = [];
   bool _isLoading = true;
+
+  // Getter for formatted label with optional asterisk
+  Widget get formattedLabel {
+    return RichText(
+      text: TextSpan(
+        text: widget.labelText,
+        style: TextStyle(color: inputTextColor, fontSize: 16),
+        children: widget.showAsterisk
+            ? [
+                TextSpan(
+                  text: ' *',
+                  style: TextStyle(color: Colors.red, fontSize: 16),
+                ),
+              ]
+            : [],
+      ),
+    );
+  }
 
   @override
   void initState() {
@@ -80,7 +100,10 @@ class _CustCityDropdownState extends State<CustCityDropdown> {
                 ),
                 hintText: widget.hintText,
                 hintStyle: TextStyle(color: inputTextColor),
-                labelText: widget.labelText,
+                // labelText: widget.labelText,
+                label: widget.showAsterisk
+                    ? formattedLabel
+                    : Text(widget.labelText),
                 labelStyle: TextStyle(color: inputTextColor),
               ),
               items: _cities.map((CityModel city) {

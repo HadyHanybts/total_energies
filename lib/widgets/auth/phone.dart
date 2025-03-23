@@ -10,6 +10,7 @@ class CustPhoneField extends StatelessWidget {
   final String initialCountryCode;
   final String? Function(PhoneNumber?)?
       validator; // Change type to accept PhoneNumber?
+  final bool showAsterisk;
 
   const CustPhoneField({
     super.key,
@@ -18,7 +19,26 @@ class CustPhoneField extends StatelessWidget {
     required this.hintText,
     this.initialCountryCode = 'EG',
     this.validator, // Updated type
+    this.showAsterisk = false,
   });
+
+  // Getter for formatted label with optional asterisk
+  Widget get formattedLabel {
+    return RichText(
+      text: TextSpan(
+        text: labelText,
+        style: TextStyle(color: inputTextColor, fontSize: 16),
+        children: showAsterisk
+            ? [
+                TextSpan(
+                  text: ' *',
+                  style: TextStyle(color: Colors.red, fontSize: 16),
+                ),
+              ]
+            : [],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +47,8 @@ class CustPhoneField extends StatelessWidget {
       child: IntlPhoneField(
         controller: controller,
         decoration: InputDecoration(
-          labelText: labelText,
+          // labelText: labelText,
+          label: showAsterisk ? formattedLabel : Text(labelText),
           labelStyle: TextStyle(color: inputTextColor),
           hintText: hintText,
           hintStyle: TextStyle(color: inputTextColor),
@@ -45,6 +66,7 @@ class CustPhoneField extends StatelessWidget {
           ),
         ),
         initialCountryCode: initialCountryCode,
+        disableLengthCheck: true,
         onChanged: (phone) {
           print("Phone number entered: ${phone.completeNumber}");
         },

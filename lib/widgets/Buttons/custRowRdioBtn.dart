@@ -8,6 +8,7 @@ class Custrowrdiobtn extends FormField<String> {
     required String labelText,
     required List<String> options,
     required String? Function(String?) validator,
+    bool showAsterisk = false,
   }) : super(
           key: key,
           validator: validator, // ✅ Pass validator to FormField
@@ -17,11 +18,29 @@ class Custrowrdiobtn extends FormField<String> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(labelText,
+                  // Text(labelText,
+                  //     style: TextStyle(
+                  //         fontSize: 16,
+                  //         fontWeight: FontWeight.bold,
+                  //         color: inputTextColor)),
+                  RichText(
+                    text: TextSpan(
+                      text: labelText,
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: inputTextColor)),
+                          color: inputTextColor),
+                      children: showAsterisk
+                          ? [
+                              TextSpan(
+                                text: ' *',
+                                style:
+                                    TextStyle(color: Colors.red, fontSize: 16),
+                              ),
+                            ]
+                          : [],
+                    ),
+                  ),
                   SizedBox(height: 8),
                   Container(
                     padding: EdgeInsets.all(8),

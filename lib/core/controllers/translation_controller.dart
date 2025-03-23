@@ -87,8 +87,8 @@ class TranslationController extends Translations {
           'edit_profile.name': 'Username',
           'edit_profile.phone_number': 'Phone Number',
           'edit_profile.email': 'Email',
-          'profile_page.acc_info':'Account Information',
-          'profile_page.acc_history':'Previous Promotions',
+          'profile_page.acc_info': 'Account Information',
+          'profile_page.acc_history': 'Previous Promotions',
           // App Bar
           'app_bar.hi_txt': 'Hi',
           // Promotions page
@@ -192,8 +192,8 @@ class TranslationController extends Translations {
           'edit_profile.name': 'اسم المستخدم',
           'edit_profile.phone_number': 'رقم التليفون',
           'edit_profile.email': 'بريد إلكتروني',
-          'profile_page.acc_info':'بيانات الحساب',
-          'profile_page.acc_history':'العروض المنهية',
+          'profile_page.acc_info': 'بيانات الحساب',
+          'profile_page.acc_history': 'العروض المنهية',
           // App Bar
           'app_bar.hi_txt': 'أهلاً',
           // Promotions page

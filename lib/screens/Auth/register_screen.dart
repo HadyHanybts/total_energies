@@ -236,20 +236,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   keyboardType: TextInputType.text,
                   validator: _validateName,
                   prefixIcon: Icons.person,
+                  showAsterisk: true,
                 ),
-                // Custtxtfield(
-                //   controller: _phoneNumberController,
-                //   labelText: "Phone Number",
-                //   hintText: "Enter your phone",
-                //   keyboardType: TextInputType.phone,
-                //   validator: _validatePhone,
-                //   prefixIcon: Icons.phone,
-                // ),
                 CustPhoneField(
                   controller: _phoneNumberController,
                   labelText: 'register_page.phone_no_label'.tr,
                   hintText: 'register_page.phone_no_hint'.tr,
                   initialCountryCode: "EG",
+                  showAsterisk: true,
                 ),
                 Custtxtfield(
                   controller: _emailController,
@@ -262,6 +256,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 CustDatePickerField(
                   controller: _birthDateController,
                   labelText: 'register_page.birth_date_label'.tr,
+                  // labelText:
+                  //     '${'register_page.birth_date_label'.tr} \u2731', // ✱ Unicode
                   hintText: 'register_page.birth_date_hint'.tr,
                   dateFrom: DateTime(1990, 1, 1), // Example: Minimum date
                   dateTo: DateTime.now(), // Example: Maximum date (today)
@@ -288,6 +284,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   labelText: 'register_page.password_label'.tr,
                   hintText: 'register_page.password_hint'.tr,
                   validator: _validatePassword,
+                  showAsterisk: true,
+                ),
+                Text(
+                  "1 upper letter + 1 small letter + minimum length 8",
+                  style: TextStyle(
+                      color: Colors.red,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14),
                 ),
                 CustConfirmPasswordField(
                   controller: _confirmPasswordController,
@@ -296,6 +300,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   labelText: 'register_page.confrim_password_label'.tr,
                   hintText: 'register_page.confrim_password_hint'.tr,
                   validator: _validateConfirmPassword,
+                  showAsterisk: true,
                 ),
                 Custrowrdiobtn(
                   controller: _genderController,
@@ -305,12 +310,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     'register_page.gender_hint2'.tr
                   ],
                   validator: _validateGender, // Pass validation function
+                  showAsterisk: true,
                 ),
                 CustCityDropdown(
                   controller: _cityCodeController,
                   labelText: 'register_page.gov_label'.tr,
                   hintText: 'register_page.gov_hint'.tr,
                   validator: _validateCity,
+                  showAsterisk: true,
                 ),
                 SizedBox(height: 20),
                 TextWithCheckbox(

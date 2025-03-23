@@ -4,6 +4,7 @@ import 'package:total_energies/core/constant/colors.dart';
 class CustDatePickerField extends StatefulWidget {
   final TextEditingController controller;
   final String labelText;
+  // final String label;
   final String hintText;
   final DateTime dateFrom; // ✅ Minimum date
   final DateTime dateTo; // ✅ Maximum date
@@ -13,6 +14,7 @@ class CustDatePickerField extends StatefulWidget {
     super.key,
     required this.controller,
     required this.labelText,
+    // required this.label,
     required this.hintText,
     required this.dateFrom,
     required this.dateTo,
@@ -34,7 +36,7 @@ class _CustDatePickerFieldState extends State<CustDatePickerField> {
 
     setState(() {
       widget.controller.text =
-          "${pickedDate?.year}-${pickedDate?.month}-${pickedDate?.day}"; // Format date
+          "${pickedDate?.day}-${pickedDate?.month}-${pickedDate?.year}"; // Format date
     });
   }
 
@@ -48,7 +50,20 @@ class _CustDatePickerFieldState extends State<CustDatePickerField> {
         style: TextStyle(color: inputTextColor), // Toggle password visibility
 
         decoration: InputDecoration(
-          labelText: widget.labelText,
+          // labelText: widget.labelText,
+          label: RichText(
+            text: TextSpan(
+              text: widget.labelText, // Translated label
+              style: TextStyle(
+                  color: Colors.black, fontSize: 16), // Default label color
+              children: [
+                TextSpan(
+                  text: ' *',
+                  style: TextStyle(color: Colors.red, fontSize: 16), // Red *
+                ),
+              ],
+            ),
+          ),
           labelStyle: TextStyle(color: inputTextColor),
           hintText: widget.hintText,
           hintStyle: TextStyle(color: inputTextColor),
