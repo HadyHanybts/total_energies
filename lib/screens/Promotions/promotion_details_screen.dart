@@ -332,8 +332,9 @@ class _PromotionDetailsScreenState extends State<PromotionDetailsScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
-              child: widget.promotion.imagePath.trim().isEmpty
-                  ? Image.network(widget.promotion.imagePath)
+              child: widget.promotion.imagePath == null ||
+                      widget.promotion.imagePath == ''
+                  ? Image.network(widget.promotion.imagePath ?? '')
                   : Image.asset("assets/images/logo.png"),
             ),
             const SizedBox(height: 20),
@@ -374,7 +375,7 @@ class _PromotionDetailsScreenState extends State<PromotionDetailsScreen> {
                   //         const TextStyle(fontSize: 18, color: Colors.black)),
                   // if (widget.promotion.qrMaxUsage != 0)
                   ActivityIndicator(
-                      completed: 0, total: widget.promotion.qrMaxUsage),
+                      completed: 0, total: widget.promotion.qrMaxUsage ?? 0),
                 ],
               ),
             ),

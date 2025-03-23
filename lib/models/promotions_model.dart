@@ -4,13 +4,13 @@ class PromotionsModel {
   final DateTime startDate;
   final DateTime endDate;
   final int maxParticipants;
-  final String imagePath;
+  final String? imagePath;
   final String eventDescription;
   final String eventEnDescription;
   final String eventArDescription;
-  final bool happyHoursYN;
-  final int qrMaxUsage;
-  final List<int> stations;
+  final bool? happyHoursYN;
+  final int? qrMaxUsage;
+  final List<int>? stations;
   final List<PromotionDetail> promotionDetails;
 
   PromotionsModel({
@@ -55,7 +55,6 @@ class PromotionsModel {
           .toList(),
     );
   }
-
 }
 
 // PromotionDetail Model

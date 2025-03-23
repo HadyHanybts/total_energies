@@ -3,7 +3,7 @@ import 'package:total_energies/core/constant/colors.dart';
 
 class CurrPromoCard extends StatefulWidget {
   final int? serial;
-  final String imagepath;
+  final String? imagepath;
   final String title;
   final String description;
   final DateTime? startDate;
@@ -33,7 +33,7 @@ class CurrPromoCard extends StatefulWidget {
   _CurrPromoCardState createState() => _CurrPromoCardState();
 }
 
-final String baseUrl = "http://92.204.139.204:4335";
+final String baseUrl = "https://www.besttopsystems.net:4335";
 
 class _CurrPromoCardState extends State<CurrPromoCard> {
   Widget imageWidget(String imageUrl) {
@@ -78,7 +78,7 @@ class _CurrPromoCardState extends State<CurrPromoCard> {
             child: Stack(
               children: [
                 // imageWidget('http://92.204.139.204:4335' + widget.imagepath),
-                imageWidget(widget.imagepath),
+                imageWidget(widget.imagepath??''),
                 // text
                 Positioned(
                   bottom: 0,

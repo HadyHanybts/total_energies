@@ -26,13 +26,16 @@ class _CurrentPromotionsPageState extends State<CurrentPromotionsPage> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       serial = prefs.getInt('serial') ?? 0;
+      print(serial);
     });
   }
 
   @override
   void initState() {
     super.initState();
-    _futurePromotions = _promotionsService.getCurrPromotions(serial);
+
+    // loadUserData();
+    _futurePromotions = _promotionsService.getCurrPromotions();
   }
 
   @override

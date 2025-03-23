@@ -1,13 +1,19 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:total_energies/models/promotions_model.dart';
 
 class GetCurrPromoService {
   final String baseUrl =
       "https://www.besttopsystems.net:4336/api/PromotionEvent/GetAllValidPormotionByCustomerSerial";
 
-  Future<List<PromotionsModel>> getCurrPromotions(int customerSerial) async {
-    final url = Uri.parse("$baseUrl/$customerSerial");
+  Future<List<PromotionsModel>> getCurrPromotions() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var customerSerial= prefs.getInt('serial');
+   
+    final url = Uri.parse("$baseUrl?customerCode=$customerSerial");
+
+    print("Request URL: $url");
 
     try {
       final response = await http.get(url);
@@ -24,27 +30,3 @@ class GetCurrPromoService {
     }
   }
 }
-
-// import 'dart:convert';
-// import 'package:http/http.dart' as http;
-// import 'package:total_energies/models/promotions_model.dart';
-
-// class GetCurrPromoService {
-//   final String baseUrl =
-//       "https://www.besttopsystems.net:4336/api/PromotionEvent/GetAllValidPormotionByCustomerSerial";
-
-//   Future<http.Response> getPromotions(int customerSerial) async {
-//     final String url = "$baseUrl/$customerSerial";
-
-//     try {
-//       final response = await http.get(
-//         Uri.parse(url),
-//         headers: {"Content-Type": "application/json"},
-//       );
-
-//       return response;
-//     } catch (e) {
-//       throw Exception("Failed to register to promotion: $e");
-//     }
-//   }
-// }

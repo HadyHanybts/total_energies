@@ -49,7 +49,7 @@ class _AllPromotionsPageState extends State<AllPromotionsPage> {
               return Directionality.of(context) != TextDirection.rtl
                   ? AllPromoCard(
                       serial: promo.serial,
-                      imagepath: promo.imagePath,
+                      imagepath:  promo.imagePath ??'',
                       title: promo.eventTopic,
                       description: promo.eventEnDescription,
                       startDate: promo.startDate,
@@ -69,7 +69,7 @@ class _AllPromotionsPageState extends State<AllPromotionsPage> {
                     )
                   : AllPromoCard(
                       serial: promo.serial,
-                      imagepath: promo.imagePath,
+                      imagepath: promo.imagePath??'',
                       title: promo.eventDescription,
                       description: promo.eventArDescription,
                       startDate: promo.startDate,

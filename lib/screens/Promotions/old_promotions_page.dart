@@ -65,7 +65,7 @@ class _OldPromotionsPageState extends State<OldPromotionsPage> {
 
               return Directionality.of(context) != TextDirection.rtl
                   ? OldPromoCard(
-                      imagepath: promo.imagePath,
+                      imagepath: promo.imagePath??'',
                       title: promo.eventTopic,
                       description: promo.eventEnDescription,
                       startDate: promo.startDate,
@@ -83,7 +83,7 @@ class _OldPromotionsPageState extends State<OldPromotionsPage> {
                       },
                     )
                   : OldPromoCard(
-                      imagepath: promo.imagePath,
+                      imagepath: promo.imagePath??'',
                       title: promo.eventTopic,
                       description: promo.eventDescription,
                       startDate: promo.startDate,
