@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:total_energies/models/promotions_model.dart';
 
-class Qrpage extends StatefulWidget {
-  const Qrpage({super.key});
+class QrScreen extends StatelessWidget {
+  final PromotionsModel promotion;
 
-  @override
-  State<Qrpage> createState() => _QrpageState();
-}
+  const QrScreen({super.key, required this.promotion});
 
-class _QrpageState extends State<Qrpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Center(child: Image.asset('assets/images/logo.png'),),
+      appBar: AppBar(title: Text("Redeem Promotion")),
+      body: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Center(
+          child: promotion.imagePath == null || promotion.imagePath == ''
+              ? Image.network(promotion.imagePath ?? '')
+              : Image.asset("assets/images/logo.png"),
+        ),
+      ),
     );
   }
 }

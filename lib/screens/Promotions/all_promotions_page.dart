@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:total_energies/core/constant/colors.dart';
 import 'package:total_energies/models/promotions_model.dart';
+import 'package:total_energies/screens/Promotions/apply_to_promo_det.dart';
 import 'package:total_energies/screens/loading_screen.dart';
 import 'package:total_energies/services/promotions_service.dart';
 import 'package:total_energies/widgets/Promotions/all_promo_card.dart';
-import 'package:total_energies/screens/Promotions/promotion_details_screen.dart';
 
 class AllPromotionsPage extends StatefulWidget {
   const AllPromotionsPage({super.key});
@@ -49,7 +49,7 @@ class _AllPromotionsPageState extends State<AllPromotionsPage> {
               return Directionality.of(context) != TextDirection.rtl
                   ? AllPromoCard(
                       serial: promo.serial,
-                      imagepath:  promo.imagePath ??'',
+                      imagepath: promo.imagePath ?? '',
                       title: promo.eventTopic,
                       description: promo.eventEnDescription,
                       startDate: promo.startDate,
@@ -62,14 +62,14 @@ class _AllPromotionsPageState extends State<AllPromotionsPage> {
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                PromotionDetailsScreen(promotion: promo),
+                                ApplyToPromoDet(promotion: promo),
                           ),
                         );
                       },
                     )
                   : AllPromoCard(
                       serial: promo.serial,
-                      imagepath: promo.imagePath??'',
+                      imagepath: promo.imagePath ?? '',
                       title: promo.eventDescription,
                       description: promo.eventArDescription,
                       startDate: promo.startDate,
@@ -82,7 +82,7 @@ class _AllPromotionsPageState extends State<AllPromotionsPage> {
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                PromotionDetailsScreen(promotion: promo),
+                                ApplyToPromoDet(promotion: promo),
                           ),
                         );
                       },

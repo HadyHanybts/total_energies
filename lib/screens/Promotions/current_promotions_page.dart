@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:total_energies/core/constant/colors.dart';
 import 'package:total_energies/models/promotions_model.dart';
+import 'package:total_energies/screens/Promotions/redeem_promo_details_screen.dart';
 import 'package:total_energies/screens/loading_screen.dart';
 import 'package:total_energies/services/get_curr_promo_service.dart';
-import 'package:total_energies/services/promotions_service.dart';
 import 'package:total_energies/widgets/Promotions/curr_promo_card.dart';
-import 'package:total_energies/screens/Promotions/promotion_details_screen.dart';
 
 class CurrentPromotionsPage extends StatefulWidget {
   const CurrentPromotionsPage({super.key});
@@ -20,15 +18,15 @@ class _CurrentPromotionsPageState extends State<CurrentPromotionsPage> {
   // final PromotionsService _promotionsService = PromotionsService();
   final GetCurrPromoService _promotionsService = GetCurrPromoService();
 
-  int serial = 0;
+  // int serial = 0;
 
-  void loadUserData() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      serial = prefs.getInt('serial') ?? 0;
-      print(serial);
-    });
-  }
+  // void loadUserData() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   setState(() {
+  //     serial = prefs.getInt('serial') ?? 0;
+  //     print(serial);
+  //   });
+  // }
 
   @override
   void initState() {
@@ -75,7 +73,7 @@ class _CurrentPromotionsPageState extends State<CurrentPromotionsPage> {
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                PromotionDetailsScreen(promotion: promo),
+                                RedeemPromoDetailsScreen(promotion: promo),
                           ),
                         );
                       },
@@ -93,7 +91,7 @@ class _CurrentPromotionsPageState extends State<CurrentPromotionsPage> {
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                PromotionDetailsScreen(promotion: promo),
+                                RedeemPromoDetailsScreen(promotion: promo),
                           ),
                         );
                       },

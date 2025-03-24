@@ -3,11 +3,11 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:total_energies/models/promotions_model.dart';
 
-class GetCurrPromoService {
+class GetExpPromoService {
   final String baseUrl =
-      "https://www.besttopsystems.net:4336/api/PromotionEvent/GetAllValidPormotionByCustomerSerial";
+      "https://www.besttopsystems.net:4336/api/PromotionEvent/GetAllCustomerExpiredPromotions";
 
-  Future<List<PromotionsModel>> getCurrPromotions() async {
+  Future<List<PromotionsModel>> getExpPromotions() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var customerSerial = prefs.getInt('serial');
 
