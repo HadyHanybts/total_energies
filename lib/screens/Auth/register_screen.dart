@@ -212,15 +212,36 @@ class _RegisterScreenState extends State<RegisterScreen> {
       appBar: AppBar(
         backgroundColor: backgroundColor,
         iconTheme: IconThemeData(color: appbariconColors),
-        title: Directionality.of(context) != TextDirection.rtl
-            ? Container(
-                alignment: Alignment.centerRight,
-                child: TranslateButton(),
-              )
-            : Container(
-                alignment: Alignment.centerLeft,
-                child: TranslateButton(),
+        title: Row(
+          children: [
+            SizedBox(
+              height: kToolbarHeight,
+              child: Image.asset(
+                "assets/images/logo.png",
+                fit: BoxFit.contain,
               ),
+            ),
+            SizedBox(
+              height: kToolbarHeight,
+              child: Image.asset(
+                "assets/images/logo1.png",
+                fit: BoxFit.contain,
+              ),
+            ),
+            const Spacer(),
+            TranslateButton()
+          ],
+        ),
+
+        //title: Directionality.of(context) != TextDirection.rtl
+        //     ? Container(
+        //         alignment: Alignment.centerRight,
+        //         child: TranslateButton(),
+        //       )
+        //     : Container(
+        //         alignment: Alignment.centerLeft,
+        //         child: TranslateButton(),
+        //       ),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -256,8 +277,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 CustDatePickerField(
                   controller: _birthDateController,
                   labelText: 'register_page.birth_date_label'.tr,
-                  // labelText:
-                  //     '${'register_page.birth_date_label'.tr} \u2731', // ✱ Unicode
                   hintText: 'register_page.birth_date_hint'.tr,
                   dateFrom: DateTime(1990, 1, 1), // Example: Minimum date
                   dateTo: DateTime.now(), // Example: Maximum date (today)
@@ -287,11 +306,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   showAsterisk: true,
                 ),
                 Text(
-                  "1 upper letter + 1 small letter + minimum length 8",
-                  style: TextStyle(
-                      color: Colors.red,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14),
+                  "Password: 1 upper letter + 1 small letter + minimum length 8",
+                  style: TextStyle(color: Colors.red, fontSize: 12),
                 ),
                 CustConfirmPasswordField(
                   controller: _confirmPasswordController,

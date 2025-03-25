@@ -63,6 +63,13 @@ class _StationListScreenState extends State<StationListScreen> {
                   fit: BoxFit.contain, // Makes image cover entire container
                 ),
               ),
+              SizedBox(
+                height: kToolbarHeight,
+                child: Image.asset(
+                  "assets/images/logo1.png",
+                  fit: BoxFit.contain,
+                ),
+              ),
               Spacer(),
               Column(
                 children: [

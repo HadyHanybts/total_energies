@@ -45,6 +45,13 @@ class _PromotionsScreenState extends State<PromotionsScreen> {
                   fit: BoxFit.contain,
                 ),
               ),
+              SizedBox(
+                height: kToolbarHeight,
+                child: Image.asset(
+                  "assets/images/logo1.png",
+                  fit: BoxFit.contain,
+                ),
+              ),
               const Spacer(),
               Column(
                 children: [

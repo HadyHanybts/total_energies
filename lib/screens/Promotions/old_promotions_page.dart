@@ -36,7 +36,11 @@ class _OldPromotionsPageState extends State<OldPromotionsPage> {
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return const Center(child: Text('No promotions available.'));
+            return const Center(
+                child: Text(
+              'You dont have expired promotions',
+              style: TextStyle(color: Colors.red, fontSize: 24),
+            ));
           }
 
           List<PromotionsModel> promotions = snapshot.data!;
