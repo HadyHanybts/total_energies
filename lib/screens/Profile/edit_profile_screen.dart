@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:total_energies/core/constant/colors.dart';
-import 'account_info_page.dart';
+import 'package:total_energies/screens/Profile/profile_page.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -42,7 +42,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => AccountInfoPage()),
+      MaterialPageRoute(builder: (context) => ProfilePage()),
     );
   }
 

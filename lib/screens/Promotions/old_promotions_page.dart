@@ -39,7 +39,7 @@ class _OldPromotionsPageState extends State<OldPromotionsPage> {
             return const Center(
                 child: Text(
               'You dont have expired promotions',
-              style: TextStyle(color: Colors.red, fontSize: 24),
+              style: TextStyle(color: Colors.red, fontSize: 20),
             ));
           }
 
