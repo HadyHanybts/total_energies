@@ -39,13 +39,26 @@ class _RedeemPromoDetailsScreenState extends State<RedeemPromoDetailsScreen> {
       backgroundColor: backgroundColor,
       appBar: AppBar(
         backgroundColor: backgroundColor,
-        title: Row(
-          children: [
-            SizedBox(
-              height: kToolbarHeight,
-              child: Image.asset("assets/images/logo.png", fit: BoxFit.contain),
-            ),
-          ],
+        title: Padding(
+          padding: const EdgeInsets.only(top: 15),
+          child: Row(
+            children: [
+              SizedBox(
+                height: kToolbarHeight,
+                child: Image.asset(
+                  "assets/images/logo.png",
+                  fit: BoxFit.contain,
+                ),
+              ),
+              SizedBox(
+                height: kToolbarHeight,
+                child: Image.asset(
+                  "assets/images/ADNOC logo1.png",
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -54,10 +67,14 @@ class _RedeemPromoDetailsScreenState extends State<RedeemPromoDetailsScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
+              // child: widget.promotion.imagePath == null ||
+              //         widget.promotion.imagePath == ''
+              //     ? Image.network(widget.promotion.imagePath ?? '')
+              //     : Image.asset("assets/images/logo.png"),
               child: widget.promotion.imagePath == null ||
                       widget.promotion.imagePath == ''
-                  ? Image.network(widget.promotion.imagePath ?? '')
-                  : Image.asset("assets/images/logo.png"),
+                  ? Image.asset("assets/images/logo.png")
+                  : Image.network(widget.promotion.imagePath ?? ''),
             ),
             const SizedBox(height: 20),
             Text(

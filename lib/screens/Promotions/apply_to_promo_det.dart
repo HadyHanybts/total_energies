@@ -102,13 +102,26 @@ class _ApplyToPromoDetState extends State<ApplyToPromoDet> {
       backgroundColor: backgroundColor,
       appBar: AppBar(
         backgroundColor: backgroundColor,
-        title: Row(
-          children: [
-            SizedBox(
-              height: kToolbarHeight,
-              child: Image.asset("assets/images/logo.png", fit: BoxFit.contain),
-            ),
-          ],
+        title: Padding(
+          padding: const EdgeInsets.only(top: 15),
+          child: Row(
+            children: [
+              SizedBox(
+                height: kToolbarHeight,
+                child: Image.asset(
+                  "assets/images/logo.png",
+                  fit: BoxFit.contain,
+                ),
+              ),
+              SizedBox(
+                height: kToolbarHeight,
+                child: Image.asset(
+                  "assets/images/ADNOC logo1.png",
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       body: SingleChildScrollView(

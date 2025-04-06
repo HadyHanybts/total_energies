@@ -86,6 +86,8 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
+import 'package:total_energies/core/constant/colors.dart';
+
 void main() {
   runApp(const MaterialApp(
     home: LoadingScreen(),
@@ -116,7 +118,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: backgroundColor,
       body: Center(
         child: Row(
           mainAxisSize: MainAxisSize.min,

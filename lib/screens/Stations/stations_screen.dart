@@ -53,7 +53,8 @@ class _StationListScreenState extends State<StationListScreen> {
       backgroundColor: backgroundColor,
       appBar: AppBar(
         backgroundColor: backgroundColor,
-        title: Container(
+        title: Padding(
+          padding: const EdgeInsets.only(top: 15),
           child: Row(
             children: [
               SizedBox(
@@ -66,7 +67,7 @@ class _StationListScreenState extends State<StationListScreen> {
               SizedBox(
                 height: kToolbarHeight,
                 child: Image.asset(
-                  "assets/images/logo1.png",
+                  "assets/images/ADNOC logo1.png",
                   fit: BoxFit.contain,
                 ),
               ),

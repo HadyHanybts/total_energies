@@ -79,7 +79,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
             ),
             Container(
               color: Colors.white,
-              height: 5,
+              height: 3,
               width: double.infinity,
               margin: EdgeInsets.symmetric(vertical: 15),
             ),
@@ -102,7 +102,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
             ),
             Container(
               color: Colors.white,
-              height: 5,
+              height: 3,
               width: double.infinity,
               margin: EdgeInsets.symmetric(vertical: 15),
             ),
@@ -124,7 +124,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
             ),
             Container(
               color: Colors.white,
-              height: 5,
+              height: 3,
               width: double.infinity,
               margin: EdgeInsets.symmetric(vertical: 15),
             ),
@@ -146,7 +146,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
             ),
             Container(
               color: Colors.white,
-              height: 5,
+              height: 3,
               width: double.infinity,
               margin: EdgeInsets.symmetric(vertical: 15),
             ),
