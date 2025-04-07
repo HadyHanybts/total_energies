@@ -130,7 +130,10 @@ class _RedeemPromoDetailsScreenState extends State<RedeemPromoDetailsScreen> {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Get.to(() => QrScreen(promotion: widget.promotion));
+                    // Get.to(() => QRPage(
+                    //     customerId: custserial,
+                    //     eventId: widget.promotion.promotionDetails[0]
+                    //         .promotionEventSerial));
                     Get.to(() => QRPage());
                   },
                   style: ButtonStyle(

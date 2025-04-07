@@ -138,3 +138,74 @@ class _QRPageState extends State<QRPage> {
     );
   }
 }
+
+// import 'package:flutter/material.dart';
+// import 'package:total_energies/models/get_qr_model.dart';
+// import 'package:total_energies/services/get_qr_service.dart';
+
+// class QRPage extends StatefulWidget {
+//   final int customerId;
+//   final int eventId;
+
+//   const QRPage({Key? key, required this.customerId, required this.eventId})
+//       : super(key: key);
+
+//   @override
+//   State<QRPage> createState() => _QRPageState();
+// }
+
+// class _QRPageState extends State<QRPage> {
+//   String? base64Image;
+//   String? fileName;
+//   bool isLoading = true;
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     fetchQRCode();
+//   }
+
+//   void fetchQRCode() async {
+//     try {
+//       final service = QRService();
+//       final response = await service.generateQR(
+//         GenerateQRRequest(
+//             customerId: widget.customerId, eventId: widget.eventId),
+//       );
+
+//       setState(() {
+//         base64Image = response.image;
+//         fileName = response.fileName;
+//         isLoading = false;
+//       });
+//     } catch (e) {
+//       print('Error: $e');
+//       setState(() => isLoading = false);
+//     }
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(title: Text("QR Generator")),
+//       body: Center(
+//         child: isLoading
+//             ? CircularProgressIndicator()
+//             : base64Image != null
+//                 ? Column(
+//                     mainAxisAlignment: MainAxisAlignment.center,
+//                     children: [
+//                       Image.memory(
+//                         Uri.parse(base64Image!).data!.contentAsBytes(),
+//                         width: 200,
+//                         height: 200,
+//                       ),
+//                       SizedBox(height: 10),
+//                       Text(fileName ?? '', style: TextStyle(fontSize: 16)),
+//                     ],
+//                   )
+//                 : Text('Failed to load QR'),
+//       ),
+//     );
+//   }
+// }
