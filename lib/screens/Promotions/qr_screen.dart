@@ -56,6 +56,8 @@ import 'package:total_energies/models/get_qr_model.dart';
 import 'package:total_energies/services/get_qr_service.dart';
 
 class QRPage extends StatefulWidget {
+  const QRPage({super.key});
+
   @override
   _QRPageState createState() => _QRPageState();
 }
@@ -130,7 +132,7 @@ class _QRPageState extends State<QRPage> {
                         height: 300,
                       ),
                       SizedBox(height: 10),
-                      Text(fileName ?? '', style: TextStyle(fontSize: 16)),
+                      // Text(fileName ?? '', style: TextStyle(fontSize: 16)),
                     ],
                   )
                 : Text('Failed to load QR'),
