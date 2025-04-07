@@ -1,50 +1,26 @@
-// class GenerateQRRequest {
-//   final int customerId;
-//   final int eventId;
-
-//   GenerateQRRequest({required this.customerId, required this.eventId});
-
-//   Map<String, dynamic> toJson() => {
-//         "customerId": customerId,
-//         "eventId": eventId,
-//       };
-// }
-
-// class GenerateQRResponse {
-//   final String? qrCode;
-
-//   GenerateQRResponse({this.qrCode});
-
-//  factory GenerateQRResponse.fromJson(Map<String, dynamic> json) {
-//     return GenerateQRResponse(
-//       qrCode: json['qrCode'] ?? json['data']?['qrCode'], 
-//     );
-//   }
-// }
-
 class GenerateQRRequest {
   final int customerId;
   final int eventId;
 
   GenerateQRRequest({required this.customerId, required this.eventId});
 
-  Map<String, dynamic> toJson() => {
-        "customerId": customerId,
-        "eventId": eventId,
-      };
+  Map<String, dynamic> toJson() {
+    return {
+      'customerId': customerId,
+      'eventId': eventId,
+    };
+  }
 }
-
 class GenerateQRResponse {
-  final String? image;
-  final String? filename;
+  final String image;
+  final String fileName;
 
-  GenerateQRResponse({this.image, this.filename});
+  GenerateQRResponse({required this.image, required this.fileName});
 
   factory GenerateQRResponse.fromJson(Map<String, dynamic> json) {
-    final qrCode = json['qrCode'] ?? json['data']?['qrCode'];
     return GenerateQRResponse(
-      image: qrCode?['image'],
-      filename: qrCode?['filename'],
+      image: json['image'],
+      fileName: json['fileName'],
     );
   }
 }

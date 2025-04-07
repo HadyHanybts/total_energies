@@ -131,10 +131,7 @@ class _RedeemPromoDetailsScreenState extends State<RedeemPromoDetailsScreen> {
                 child: ElevatedButton(
                   onPressed: () {
                     // Get.to(() => QrScreen(promotion: widget.promotion));
-                    Get.to(() => QrScreen(
-                          customerId: 113,
-                          eventId: 1074,
-                        ));
+                    Get.to(() => QRPage());
                   },
                   style: ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(primaryColor),

@@ -50,25 +50,20 @@
 //   }
 // }
 
-import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:total_energies/core/constant/colors.dart';
 import 'package:total_energies/models/get_qr_model.dart';
 import 'package:total_energies/services/get_qr_service.dart';
 
-class QrScreen extends StatefulWidget {
-  final int customerId;
-  final int eventId;
-
-  const QrScreen({super.key, required this.customerId, required this.eventId});
-
+class QRPage extends StatefulWidget {
   @override
-  State<QrScreen> createState() => _QrScreenState();
+  _QRPageState createState() => _QRPageState();
 }
 
-class _QrScreenState extends State<QrScreen> {
-  String? qrCode;
+class _QRPageState extends State<QRPage> {
+  String? base64Image;
+  String? fileName;
   bool isLoading = true;
-  final QRService qrService = QRService();
 
   @override
   void initState() {
@@ -76,23 +71,20 @@ class _QrScreenState extends State<QrScreen> {
     fetchQRCode();
   }
 
-  Future<void> fetchQRCode() async {
+  void fetchQRCode() async {
     try {
-      final request = GenerateQRRequest(
-        customerId: widget.customerId,
-        eventId: widget.eventId,
+      final service = QRService();
+      final response = await service.generateQR(
+        GenerateQRRequest(customerId: 113, eventId: 1074),
       );
 
-      final response = await qrService.generateQR(request);
-      print("QR Code: ${response.image}");
-
       setState(() {
-        qrCode = response.image;
-        print("qrCode assigned in setState: ${qrCode?.substring(0, 30)}...");
+        base64Image = response.image;
+        fileName = response.fileName;
         isLoading = false;
       });
     } catch (e) {
-      print("Error: $e");
+      print('Error: $e');
       setState(() => isLoading = false);
     }
   }
@@ -100,13 +92,48 @@ class _QrScreenState extends State<QrScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('QR Code')),
+      backgroundColor: backgroundColor,
+      appBar: AppBar(
+        backgroundColor: backgroundColor,
+        title: Padding(
+          padding: const EdgeInsets.only(top: 15),
+          child: Row(
+            children: [
+              SizedBox(
+                height: kToolbarHeight,
+                child: Image.asset(
+                  "assets/images/logo.png",
+                  fit: BoxFit.contain,
+                ),
+              ),
+              SizedBox(
+                height: kToolbarHeight,
+                child: Image.asset(
+                  "assets/images/ADNOC logo1.png",
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
       body: Center(
         child: isLoading
-            ? const CircularProgressIndicator()
-            : qrCode != null && qrCode!.isNotEmpty
-                ? Image.memory(base64Decode(qrCode!))
-                : const Text("No QR code available"),
+            ? CircularProgressIndicator()
+            : base64Image != null
+                ? Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.memory(
+                        Uri.parse(base64Image!).data!.contentAsBytes(),
+                        width: 300,
+                        height: 300,
+                      ),
+                      SizedBox(height: 10),
+                      Text(fileName ?? '', style: TextStyle(fontSize: 16)),
+                    ],
+                  )
+                : Text('Failed to load QR'),
       ),
     );
   }
