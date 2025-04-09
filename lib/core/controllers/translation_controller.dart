@@ -14,7 +14,7 @@ class TranslationController extends Translations {
           'login_page.empty_verification': 'This Field required',
           'login_page.pass_verification': 'Password is required',
           'login_page.pass_verification1':
-              'Password must be at least 6 characters',
+              'Password must be at least 8 characters',
           // Forget Page
           'forget_page.title': 'Forget Password',
           'forget_page.phone_no': 'Phone Number',
@@ -59,7 +59,7 @@ class TranslationController extends Translations {
           'register_page.name_verification':
               'Enter a valid name (only letters, min 3 characters)',
           'register_page.pass_verification':
-              'Password must be at least 6 characters',
+              'Password must be at least 8 characters',
           'register_page.date_verification': 'Invalid date format.',
           'register_page.age_verification':
               'You must be at least 16 years old.',
@@ -119,7 +119,7 @@ class TranslationController extends Translations {
           'login_page.empty_verification': 'هذا الحقل مطلوب',
           'login_page.pass_verification': 'كلمة المرور مطلوبة',
           'login_page.pass_verification1':
-              'يجب أن تتكون كلمة المرور من 6 أحرف على الأقل',
+              'يجب أن تتكون كلمة المرور من 8 أحرف على الأقل',
           // Forget Page
           'forget_page.title': 'نسيت كلمة المرور',
           'forget_page.phone_no': 'رقم الهاتف',
@@ -164,7 +164,7 @@ class TranslationController extends Translations {
           'register_page.name_verification':
               'أدخل اسمًا صالحًا (أحرف فقط، 3 أحرف على الأقل)',
           'register_page.pass_verification':
-              'يجب أن تتكون كلمة المرور من 6 أحرف على الأقل',
+              'يجب أن تتكون كلمة المرور من 8 أحرف على الأقل',
           'register_page.date_verification': 'تنسيق التاريخ غير صالح.',
           'register_page.age_verification':
               'يجب أن يكون عمرك 16 عامًا على الأقل.',

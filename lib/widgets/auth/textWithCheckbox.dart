@@ -24,14 +24,6 @@ class _TextWithCheckboxState extends State<TextWithCheckbox> {
       margin: EdgeInsets.symmetric(vertical: 10),
       child: Row(
         children: [
-          // Text widget for the label
-          Expanded(
-            child: Text(
-              widget.text,
-              style: TextStyle(fontSize: 12, color: inputTextColor),
-            ),
-          ),
-
           // Checkbox widget
           Checkbox(
             value: widget.value,
@@ -41,6 +33,16 @@ class _TextWithCheckboxState extends State<TextWithCheckbox> {
               }
             },
             activeColor: Colors.green, // Checkbox color when checked
+          ),
+          // Text widget for the label
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Text(
+                widget.text,
+                style: TextStyle(fontSize: 12, color: inputTextColor),
+              ),
+            ),
           ),
         ],
       ),

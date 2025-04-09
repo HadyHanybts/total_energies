@@ -53,14 +53,22 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       appBar: AppBar(
         backgroundColor: backgroundColor,
         // iconTheme: IconThemeData(color: Colors.white),
-        title: Container(
+        title: Padding(
+          padding: const EdgeInsets.only(top: 15),
           child: Row(
             children: [
               SizedBox(
-                height: kToolbarHeight, // Matches the AppBar's height
+                height: kToolbarHeight,
                 child: Image.asset(
                   "assets/images/logo.png",
-                  fit: BoxFit.contain, // Makes image cover entire container
+                  fit: BoxFit.contain,
+                ),
+              ),
+              SizedBox(
+                height: kToolbarHeight,
+                child: Image.asset(
+                  "assets/images/ADNOC logo1.png",
+                  fit: BoxFit.contain,
                 ),
               ),
             ],

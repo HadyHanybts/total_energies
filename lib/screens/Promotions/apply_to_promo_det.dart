@@ -167,21 +167,12 @@ class _ApplyToPromoDetState extends State<ApplyToPromoDet> {
                       'End date: ${widget.promotion.endDate.toString().split(' ')[0]}',
                       style:
                           const TextStyle(fontSize: 18, color: Colors.black)),
-                  ActivityIndicator(
-                      completed: 0, total: widget.promotion.qrMaxUsage ?? 0),
+                  const SizedBox(height: 10),
+                  Text('Max Usage Times : ${widget.promotion.qrMaxUsage}',
+                      style:
+                          const TextStyle(fontSize: 18, color: Colors.black)),
                 ],
               ),
-            ),
-            const SizedBox(height: 20),
-            Text(
-              "Choose Station to use the promotion",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
-            StationDropdown(
-              onChanged: (selectedStation) {
-                print("Selected Station: ${selectedStation?.stationName}");
-              },
             ),
             const SizedBox(height: 20),
             Center(

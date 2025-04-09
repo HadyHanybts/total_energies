@@ -107,7 +107,7 @@ class CustPhoneField extends StatefulWidget {
 }
 
 class _CustPhoneFieldState extends State<CustPhoneField> {
-  int maxLength = 10; // Default
+  int maxLength = 12; // Default
   late List<TextInputFormatter> inputFormatters;
 
   // Define country-specific digit limits
@@ -124,7 +124,7 @@ class _CustPhoneFieldState extends State<CustPhoneField> {
   @override
   void initState() {
     super.initState();
-    maxLength = countryMaxLengths[widget.initialCountryCode] ?? 10;
+    maxLength = countryMaxLengths[widget.initialCountryCode] ?? 12;
     inputFormatters = [
       FilteringTextInputFormatter.digitsOnly,
       LengthLimitingTextInputFormatter(maxLength),
@@ -185,9 +185,9 @@ class _CustPhoneFieldState extends State<CustPhoneField> {
         ),
         initialCountryCode: widget.initialCountryCode,
         disableLengthCheck: true,
-        onChanged: (phone) {
-          print("Phone number entered: ${phone.completeNumber}");
-        },
+        // onChanged: (phone) {
+        //   print("Phone number entered: ${phone.completeNumber}");
+        // },
         onCountryChanged: (country) {
           updateMaxLength(country.code);
         },

@@ -7,11 +7,11 @@ class Custrowrdiobtn extends FormField<String> {
     required TextEditingController controller,
     required String labelText,
     required List<String> options,
-    required String? Function(String?) validator,
+    String? Function(String?)? validator,
     bool showAsterisk = false,
   }) : super(
           key: key,
-          validator: validator, // ✅ Pass validator to FormField
+          validator: validator,
           builder: (FormFieldState<String> state) {
             return Container(
               margin: EdgeInsets.symmetric(vertical: 10),
@@ -48,8 +48,8 @@ class Custrowrdiobtn extends FormField<String> {
                       border: Border.all(
                           color: state.hasError
                               ? Colors.red
-                              : Colors.grey), // ✅ Show error border
-                      borderRadius: BorderRadius.circular(8),
+                              : Colors.black), // ✅ Show error border
+                      borderRadius: BorderRadius.circular(15),
                     ),
                     child: Row(
                       children: options.map((option) {

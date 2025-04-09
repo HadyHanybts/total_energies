@@ -7,7 +7,7 @@ class CustCityDropdown extends StatefulWidget {
   final TextEditingController controller;
   final String labelText;
   final String hintText;
-  final String? Function(String?) validator;
+  final String? Function(String?)? validator;
   final bool showAsterisk;
 
   const CustCityDropdown({
@@ -15,7 +15,7 @@ class CustCityDropdown extends StatefulWidget {
     required this.controller,
     required this.labelText,
     required this.hintText,
-    required this.validator,
+    this.validator,
     this.showAsterisk = false,
   });
 
@@ -69,7 +69,9 @@ class _CustCityDropdownState extends State<CustCityDropdown> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: EdgeInsets.only(
+        top: 20,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

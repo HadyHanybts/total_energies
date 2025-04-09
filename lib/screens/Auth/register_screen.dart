@@ -119,8 +119,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
   String? _validatePassword(String? value) {
     if (value == null || value.isEmpty) {
       return 'register_page.empty_verification'.tr;
-    } else if (value.length < 6) {
+    } else if (value.length < 8) {
       return 'register_page.pass_verification'.tr;
+    } else if (!RegExp(r'^(?=.*[a-z])(?=.*[A-Z]).{8,}$').hasMatch(value)) {
+      return 'register_page.pass_verification'
+          .tr; // You can create a specific translation for this case
     }
     return null;
   }
@@ -129,8 +132,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
   String? _validateConfirmPassword(String? value) {
     if (value == null || value.isEmpty) {
       return 'register_page.empty_verification'.tr;
-    } else if (value.length < 6) {
+    } else if (value.length < 8) {
       return 'register_page.pass_verification'.tr;
+    } else if (!RegExp(r'^(?=.*[a-z])(?=.*[A-Z]).{8,}$').hasMatch(value)) {
+      return 'register_page.pass_verification'
+          .tr; // You can create a specific translation for this case
     }
     return null;
   }
@@ -212,25 +218,30 @@ class _RegisterScreenState extends State<RegisterScreen> {
       appBar: AppBar(
         backgroundColor: backgroundColor,
         iconTheme: IconThemeData(color: appbariconColors),
-        title: Row(
-          children: [
-            SizedBox(
-              height: kToolbarHeight,
-              child: Image.asset(
-                "assets/images/logo.png",
-                fit: BoxFit.contain,
+        title: Padding(
+          padding: const EdgeInsets.only(
+            top: 10,
+          ),
+          child: Row(
+            children: [
+              SizedBox(
+                height: kToolbarHeight,
+                child: Image.asset(
+                  "assets/images/logo.png",
+                  fit: BoxFit.contain,
+                ),
               ),
-            ),
-            SizedBox(
-              height: kToolbarHeight,
-              child: Image.asset(
-                "assets/images/logo1.png",
-                fit: BoxFit.contain,
+              SizedBox(
+                height: kToolbarHeight,
+                child: Image.asset(
+                  "assets/images/ADNOC logo1.png",
+                  fit: BoxFit.contain,
+                ),
               ),
-            ),
-            const Spacer(),
-            TranslateButton()
-          ],
+              const Spacer(),
+              TranslateButton()
+            ],
+          ),
         ),
 
         //title: Directionality.of(context) != TextDirection.rtl
@@ -271,7 +282,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   labelText: 'register_page.email_label'.tr,
                   hintText: 'register_page.email_hint'.tr,
                   keyboardType: TextInputType.emailAddress,
-                  validator: _validateEmail,
+                  // validator: _validateEmail,
                   prefixIcon: Icons.mail,
                 ),
                 CustDatePickerField(
@@ -287,7 +298,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   labelText: 'register_page.car_model_label'.tr,
                   hintText: 'register_page.car_model_hint'.tr,
                   keyboardType: TextInputType.text,
-                  validator: _validateName,
+                  // validator: _validateName,
                   prefixIcon: Icons.directions_car,
                 ),
                 Custtxtfield(
@@ -295,8 +306,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   labelText: 'register_page.car_model_year_label'.tr,
                   hintText: 'register_page.car_model_year_hint'.tr,
                   keyboardType: TextInputType.number,
-                  validator: _validateYear,
+                  // validator: _validateYear,
                   prefixIcon: Icons.calendar_today,
+                ),
+                Text(
+                  "Password: 1 upper letter + 1 small letter + minimum length 8",
+                  style: TextStyle(color: Colors.red, fontSize: 12),
                 ),
                 CustPasswordField(
                   controller: _passwordController,
@@ -304,10 +319,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   hintText: 'register_page.password_hint'.tr,
                   validator: _validatePassword,
                   showAsterisk: true,
-                ),
-                Text(
-                  "Password: 1 upper letter + 1 small letter + minimum length 8",
-                  style: TextStyle(color: Colors.red, fontSize: 12),
                 ),
                 CustConfirmPasswordField(
                   controller: _confirmPasswordController,
@@ -325,14 +336,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     'register_page.gender_hint1'.tr,
                     'register_page.gender_hint2'.tr
                   ],
-                  validator: _validateGender, // Pass validation function
+                  // validator: _validateGender,
                   showAsterisk: true,
                 ),
                 CustCityDropdown(
                   controller: _cityCodeController,
                   labelText: 'register_page.gov_label'.tr,
                   hintText: 'register_page.gov_hint'.tr,
-                  validator: _validateCity,
+                  // validator: _validateCity,
                   showAsterisk: true,
                 ),
                 SizedBox(height: 20),

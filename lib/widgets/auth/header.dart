@@ -90,6 +90,7 @@ class _HeaderState extends State<Header> {
                 child: Image.asset(
                   "assets/images/logo.png",
                   width: 200,
+                  // height: 100,
                 ),
               ),
               AnimatedPositioned(
@@ -97,8 +98,9 @@ class _HeaderState extends State<Header> {
                 curve: Curves.easeInOut,
                 right: rightLogoPosition,
                 child: Image.asset(
-                  "assets/images/logo1.png",
+                  "assets/images/ADNOC logo1.png",
                   width: 200,
+                  height: 100,
                 ),
               ),
             ],

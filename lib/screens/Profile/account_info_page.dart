@@ -72,7 +72,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(name, style: TextStyle(fontSize: 18)),
-                    Icon(Icons.arrow_forward_rounded)
+                    Icon(Icons.person_2_outlined)
                   ],
                 ),
               ],
@@ -95,7 +95,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(phoneno, style: TextStyle(fontSize: 18)),
-                    Icon(Icons.arrow_forward_rounded)
+                    Icon(Icons.phone_outlined)
                   ],
                 ),
               ],
@@ -117,7 +117,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(email, style: TextStyle(fontSize: 18)),
-                    Icon(Icons.arrow_forward_rounded)
+                    Icon(Icons.email_outlined)
                   ],
                 ),
               ],
@@ -139,7 +139,7 @@ class _AccountInfoPageState extends State<AccountInfoPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text("$serial", style: TextStyle(fontSize: 18)),
-                    Icon(Icons.arrow_forward_rounded)
+                    Icon(Icons.security)
                   ],
                 ),
               ],
