@@ -86,14 +86,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
     if (success == 200) Navigator.pop(context);
   }
 
-  // Phone number validation function
-  // String? _validatePhone(PhoneNumber? phone) {
-  //   if (phone == null || phone.number.isEmpty) {
-  //     return 'register_page.empty_verification'.tr;
-  //   }
-  //   return null;
-  // }
-
 // Email Address validation function
   String? _validateEmail(String? value) {
     if (value == null || value.isEmpty) {
@@ -220,21 +212,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
         iconTheme: IconThemeData(color: appbariconColors),
         title: Padding(
           padding: const EdgeInsets.only(
-            top: 10,
+            top: 0,
           ),
           child: Row(
             children: [
               SizedBox(
                 height: kToolbarHeight,
                 child: Image.asset(
-                  "assets/images/logo.png",
+                  "assets/images/logo1.1.png",
                   fit: BoxFit.contain,
                 ),
               ),
               SizedBox(
                 height: kToolbarHeight,
                 child: Image.asset(
-                  "assets/images/ADNOC logo1.png",
+                  "assets/images/ADNOC logo1.1.png",
                   fit: BoxFit.contain,
                 ),
               ),
@@ -243,7 +235,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ],
           ),
         ),
-
         //title: Directionality.of(context) != TextDirection.rtl
         //     ? Container(
         //         alignment: Alignment.centerRight,
