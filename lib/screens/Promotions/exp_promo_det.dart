@@ -38,8 +38,21 @@ class _ExpPromoDetState extends State<ExpPromoDet> {
         title: Row(
           children: [
             SizedBox(
-              height: kToolbarHeight,
-              child: Image.asset("assets/images/logo.png", fit: BoxFit.contain),
+              height: kToolbarHeight - 25,
+              child: Image.asset(
+                "assets/images/logo1.1.png",
+                fit: BoxFit.contain,
+              ),
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            SizedBox(
+              height: kToolbarHeight - 25,
+              child: Image.asset(
+                "assets/images/ADNOC logo1.1.png",
+                fit: BoxFit.contain,
+              ),
             ),
           ],
         ),

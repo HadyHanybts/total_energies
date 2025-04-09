@@ -36,41 +36,41 @@ class _PromotionsScreenState extends State<PromotionsScreen> {
         backgroundColor: backgroundColor,
         appBar: AppBar(
           backgroundColor: backgroundColor,
-          title: Padding(
-            padding: const EdgeInsets.only(top: 15),
-            child: Row(
-              children: [
-                SizedBox(
-                  height: kToolbarHeight,
-                  child: Image.asset(
-                    "assets/images/logo.png",
-                    fit: BoxFit.contain,
-                  ),
+          title: Row(
+            children: [
+              SizedBox(
+                height: kToolbarHeight - 25,
+                child: Image.asset(
+                  "assets/images/logo1.1.png",
+                  fit: BoxFit.contain,
                 ),
-                SizedBox(
-                  height: kToolbarHeight,
-                  child: Image.asset(
-                    "assets/images/ADNOC logo1.png",
-                    fit: BoxFit.contain,
-                  ),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              SizedBox(
+                height: kToolbarHeight - 25,
+                child: Image.asset(
+                  "assets/images/ADNOC logo1.1.png",
+                  fit: BoxFit.contain,
                 ),
-                const Spacer(),
-                Column(
-                  children: [
-                    Text('app_bar.hi_txt'.tr,
-                        style: const TextStyle(
-                            fontSize: 18,
-                            color: primaryColor,
-                            fontWeight: FontWeight.bold)),
-                    Text(name,
-                        style: const TextStyle(
-                            fontSize: 18,
-                            color: primaryColor,
-                            fontWeight: FontWeight.bold))
-                  ],
-                ),
-              ],
-            ),
+              ),
+              const Spacer(),
+              Column(
+                children: [
+                  Text('app_bar.hi_txt'.tr,
+                      style: const TextStyle(
+                          fontSize: 18,
+                          color: primaryColor,
+                          fontWeight: FontWeight.bold)),
+                  Text(name,
+                      style: const TextStyle(
+                          fontSize: 18,
+                          color: primaryColor,
+                          fontWeight: FontWeight.bold))
+                ],
+              ),
+            ],
           ),
           bottom: TabBar(
             labelColor: primaryColor,

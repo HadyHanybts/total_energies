@@ -210,30 +210,28 @@ class _RegisterScreenState extends State<RegisterScreen> {
       appBar: AppBar(
         backgroundColor: backgroundColor,
         iconTheme: IconThemeData(color: appbariconColors),
-        title: Padding(
-          padding: const EdgeInsets.only(
-            top: 0,
-          ),
-          child: Row(
-            children: [
-              SizedBox(
-                height: kToolbarHeight,
-                child: Image.asset(
-                  "assets/images/logo1.1.png",
-                  fit: BoxFit.contain,
-                ),
+        title: Row(
+          children: [
+            SizedBox(
+              height: kToolbarHeight - 25,
+              child: Image.asset(
+                "assets/images/logo1.1.png",
+                fit: BoxFit.contain,
               ),
-              SizedBox(
-                height: kToolbarHeight,
-                child: Image.asset(
-                  "assets/images/ADNOC logo1.1.png",
-                  fit: BoxFit.contain,
-                ),
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            SizedBox(
+              height: kToolbarHeight - 25,
+              child: Image.asset(
+                "assets/images/ADNOC logo1.1.png",
+                fit: BoxFit.contain,
               ),
-              const Spacer(),
-              TranslateButton()
-            ],
-          ),
+            ),
+            const Spacer(),
+            TranslateButton()
+          ],
         ),
         //title: Directionality.of(context) != TextDirection.rtl
         //     ? Container(

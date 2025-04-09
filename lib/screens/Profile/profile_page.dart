@@ -47,42 +47,42 @@ class _ProfilePageState extends State<ProfilePage> {
         backgroundColor: backgroundColor,
         appBar: AppBar(
           backgroundColor: backgroundColor,
-          title: Padding(
-            padding: const EdgeInsets.only(top: 15),
-            child: Row(
-              children: [
-                SizedBox(
-                  height: kToolbarHeight,
-                  child: Image.asset(
-                    "assets/images/logo.png",
-                    fit: BoxFit.contain,
+          title: Row(
+            children: [
+              SizedBox(
+                height: kToolbarHeight - 25,
+                child: Image.asset(
+                  "assets/images/logo1.1.png",
+                  fit: BoxFit.contain,
+                ),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              SizedBox(
+                height: kToolbarHeight - 25,
+                child: Image.asset(
+                  "assets/images/ADNOC logo1.1.png",
+                  fit: BoxFit.contain,
+                ),
+              ),
+              const Spacer(),
+              ElevatedButton(
+                onPressed: logout,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor:
+                      primaryColor, // Change this to your desired color
+                  foregroundColor: Colors.white, // Text color
+                  padding: EdgeInsets.symmetric(
+                      horizontal: 20, vertical: 12), // Button padding
+                  shape: RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.circular(10), // Rounded corners
                   ),
                 ),
-                SizedBox(
-                  height: kToolbarHeight,
-                  child: Image.asset(
-                    "assets/images/ADNOC logo1.png",
-                    fit: BoxFit.contain,
-                  ),
-                ),
-                const Spacer(),
-                ElevatedButton(
-                  onPressed: logout,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:
-                        primaryColor, // Change this to your desired color
-                    foregroundColor: Colors.white, // Text color
-                    padding: EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 12), // Button padding
-                    shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(10), // Rounded corners
-                    ),
-                  ),
-                  child: Text("btn.logout".tr),
-                ),
-              ],
-            ),
+                child: Text("btn.logout".tr),
+              ),
+            ],
           ),
           bottom: TabBar(
             labelColor: primaryColor,

@@ -53,41 +53,41 @@ class _StationListScreenState extends State<StationListScreen> {
       backgroundColor: backgroundColor,
       appBar: AppBar(
         backgroundColor: backgroundColor,
-        title: Padding(
-          padding: const EdgeInsets.only(top: 15),
-          child: Row(
-            children: [
-              SizedBox(
-                height: kToolbarHeight, // Matches the AppBar's height
-                child: Image.asset(
-                  "assets/images/logo.png",
-                  fit: BoxFit.contain, // Makes image cover entire container
-                ),
+        title: Row(
+          children: [
+            SizedBox(
+              height: kToolbarHeight - 25,
+              child: Image.asset(
+                "assets/images/logo1.1.png",
+                fit: BoxFit.contain,
               ),
-              SizedBox(
-                height: kToolbarHeight,
-                child: Image.asset(
-                  "assets/images/ADNOC logo1.png",
-                  fit: BoxFit.contain,
-                ),
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            SizedBox(
+              height: kToolbarHeight - 25,
+              child: Image.asset(
+                "assets/images/ADNOC logo1.1.png",
+                fit: BoxFit.contain,
               ),
-              Spacer(),
-              Column(
-                children: [
-                  Text('app_bar.hi_txt'.tr,
-                      style: TextStyle(
-                          fontSize: 18,
-                          color: primaryColor,
-                          fontWeight: FontWeight.bold)),
-                  Text(name,
-                      style: TextStyle(
-                          fontSize: 18,
-                          color: primaryColor,
-                          fontWeight: FontWeight.bold))
-                ],
-              ),
-            ],
-          ),
+            ),
+            Spacer(),
+            Column(
+              children: [
+                Text('app_bar.hi_txt'.tr,
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: primaryColor,
+                        fontWeight: FontWeight.bold)),
+                Text(name,
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: primaryColor,
+                        fontWeight: FontWeight.bold))
+              ],
+            ),
+          ],
         ),
       ),
       body: Column(
