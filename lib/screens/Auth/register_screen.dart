@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:total_energies/core/constant/colors.dart';
+import 'package:total_energies/models/car_brands_model.dart';
 import 'package:total_energies/services/user_service.dart';
 import 'package:total_energies/widgets/Buttons/trnslt_btn.dart';
+import 'package:total_energies/widgets/withService/car_brand_dropdown.dart';
+import 'package:total_energies/widgets/withService/car_brand_search.dart';
 import 'package:total_energies/widgets/auth/custCnfrmPassField.dart';
 import 'package:total_energies/widgets/auth/custDateField.dart';
 import 'package:total_energies/widgets/auth/phone.dart';
@@ -11,6 +14,7 @@ import 'package:total_energies/widgets/withService/custCityDrpDwn.dart';
 import 'package:total_energies/widgets/auth/custPassField.dart';
 import 'package:total_energies/widgets/Buttons/custRowRdioBtn.dart';
 import 'package:total_energies/widgets/auth/custTxtField.dart';
+import 'package:total_energies/widgets/withService/custCitySearchfield.dart';
 import '../../models/user_model.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -25,13 +29,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController _phoneNumberController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _birthDateController = TextEditingController();
-  final TextEditingController _carModelController = TextEditingController();
+  // final TextEditingController _carModelController = TextEditingController();
   final TextEditingController _carModelYear = TextEditingController();
   final TextEditingController _genderController = TextEditingController();
   final TextEditingController _cityCodeController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
       TextEditingController();
+  final TextEditingController _carBrandController = TextEditingController();
   // final TextEditingController _agreeTermsController = TextEditingController();
 
   bool _agreeTerms = false;
@@ -62,7 +67,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       email: _emailController.text,
       phoneNumber: _phoneNumberController.text,
       birthDate: _birthDateController.text,
-      carModel: _carModelController.text,
+      carModel: _carBrandController.text,
       gender: _genderController.text,
       // cityCode: _cityCodeController.hashCode,
       cityCode: int.tryParse(_cityCodeController.text) ?? 0,
@@ -284,12 +289,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   // validator: _validateGender,
                   showAsterisk: true,
                 ),
-                CustCityDropdown(
+                // CustCityDropdown(
+                //   controller: _cityCodeController,
+                //   labelText: 'register_page.gov_label'.tr,
+                //   hintText: 'register_page.gov_hint'.tr,
+                //   // validator: _validateCity,
+                //   showAsterisk: true,
+                // ),
+                SizedBox(height: 10,),
+                CitySearchField(
                   controller: _cityCodeController,
-                  labelText: 'register_page.gov_label'.tr,
-                  hintText: 'register_page.gov_hint'.tr,
-                  // validator: _validateCity,
-                  showAsterisk: true,
+                  labelText: "City",
+                  hintText: "Select your city",
+                  showAsterisk: true, // Show * if required
                 ),
                 SizedBox(height: 20),
                 CustDatePickerField(
@@ -300,13 +312,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   dateTo: DateTime.now(), // Example: Maximum date (today)
                   validator: _validateDate,
                 ),
-                Custtxtfield(
-                  controller: _carModelController,
-                  labelText: 'register_page.car_brand_label'.tr,
-                  hintText: 'register_page.car_brand_hint'.tr,
-                  keyboardType: TextInputType.text,
-                  // validator: _validateName,
-                  prefixIcon: Icons.directions_car,
+                // Custtxtfield(
+                //   controller: _carModelController,
+                //   labelText: 'register_page.car_brand_label'.tr,
+                //   hintText: 'register_page.car_brand_hint'.tr,
+                //   keyboardType: TextInputType.text,
+                //   // validator: _validateName,
+                //   prefixIcon: Icons.directions_car,
+                // ),
+                CarBrandSearchField(
+                  controller: _carBrandController,
+                  labelText: "Car Brand",
+                  hintText: "Select car brand",
+                  // showAsterisk: true,
                 ),
                 Custtxtfield(
                   controller: _carModelYear,

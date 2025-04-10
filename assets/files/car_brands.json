@@ -1,0 +1,622 @@
+[
+    {
+        "English": "Abarth",
+        "Arabic": "أبارث"
+    },
+    {
+        "English": "Acura",
+        "Arabic": "اكيورا"
+    },
+    {
+        "English": "Alfa Romeo",
+        "Arabic": "الفاروميو"
+    },
+    {
+        "English": "Arcfox",
+        "Arabic": "اركفوكس"
+    },
+    {
+        "English": "Aston Martin",
+        "Arabic": "استون مارتن"
+    },
+    {
+        "English": "Audi",
+        "Arabic": "اودي"
+    },
+    {
+        "English": "Avatr",
+        "Arabic": "افاتار"
+    },
+    {
+        "English": "Baic",
+        "Arabic": "بايك"
+    },
+    {
+        "English": "Bajaj",
+        "Arabic": "بجاج"
+    },
+    {
+        "English": "Benelli",
+        "Arabic": "بينيلي"
+    },
+    {
+        "English": "Bentley",
+        "Arabic": "بنتلى"
+    },
+    {
+        "English": "Bestune",
+        "Arabic": "بيستون"
+    },
+    {
+        "English": "BMW",
+        "Arabic": "بي ام دبليو"
+    },
+    {
+        "English": "Borgward",
+        "Arabic": "بورجوارد"
+    },
+    {
+        "English": "Brilliance",
+        "Arabic": "بريليانس"
+    },
+    {
+        "English": "Bugatti",
+        "Arabic": "بوجاتى"
+    },
+    {
+        "English": "Buick",
+        "Arabic": "بويك"
+    },
+    {
+        "English": "Byd",
+        "Arabic": "بى واى دى‬"
+    },
+    {
+        "English": "Cadillac",
+        "Arabic": "كاديلاك"
+    },
+    {
+        "English": "Chana",
+        "Arabic": "شانا"
+    },
+    {
+        "English": "Changan",
+        "Arabic": "شانجان"
+    },
+    {
+        "English": "Canghe",
+        "Arabic": "شانجى"
+    },
+    {
+        "English": "Chery",
+        "Arabic": "شيرى"
+    },
+    {
+        "English": "Chevrolet",
+        "Arabic": "شيفروليه"
+    },
+    {
+        "English": "Chrysler",
+        "Arabic": "كرايسلر"
+    },
+    {
+        "English": "Citroën",
+        "Arabic": "سيتروين"
+    },
+    {
+        "English": "Cupra",
+        "Arabic": "كوبرا"
+    },
+    {
+        "English": "Daewoo",
+        "Arabic": "دايو"
+    },
+    {
+        "English": "Daihatsu",
+        "Arabic": "دايهاتسو"
+    },
+    {
+        "English": "Datsun",
+        "Arabic": "داتسون"
+    },
+    {
+        "English": "Dayun",
+        "Arabic": "دايون"
+    },
+    {
+        "English": "DFSK",
+        "Arabic": "دفسك"
+    },
+    {
+        "English": "Dodge",
+        "Arabic": "دودج"
+    },
+    {
+        "English": "Domy",
+        "Arabic": "دوماى"
+    },
+    {
+        "English": "Dongfeng",
+        "Arabic": "دونج فنج"
+    },
+    {
+        "English": "Dorcen",
+        "Arabic": "دورسن"
+    },
+    {
+        "English": "Ds",
+        "Arabic": "دى اس"
+    },
+    {
+        "English": "Ducati",
+        "Arabic": "دوكاتي"
+    },
+    {
+        "English": "Emgrand",
+        "Arabic": "امجيراند"
+    },
+    {
+        "English": "Exeed",
+        "Arabic": "اكسييد"
+    },
+    {
+        "English": "Faw",
+        "Arabic": "فاو"
+    },
+    {
+        "English": "Ferrari",
+        "Arabic": "فيرارى"
+    },
+    {
+        "English": "Fiat",
+        "Arabic": "فيات"
+    },
+    {
+        "English": "Ford",
+        "Arabic": "فورد"
+    },
+    {
+        "English": "Forthing",
+        "Arabic": "فورثينج"
+    },
+    {
+        "English": "Foton",
+        "Arabic": "فوتون"
+    },
+    {
+        "English": "Fuso",
+        "Arabic": "فوسو"
+    },
+    {
+        "English": "GAC",
+        "Arabic": "جي أي سي"
+    },
+    {
+        "English": "Geely",
+        "Arabic": "جيلي"
+    },
+    {
+        "English": "Genesis",
+        "Arabic": "جينيسيس‎"
+    },
+    {
+        "English": "Glide",
+        "Arabic": "جلايد"
+    },
+    {
+        "English": "Gmc",
+        "Arabic": "جى ام سى"
+    },
+    {
+        "English": "Golden Dragon",
+        "Arabic": "جولدن دراجون"
+    },
+    {
+        "English": "Great Wall",
+        "Arabic": "جريت وول"
+    },
+    {
+        "English": "Hanteng",
+        "Arabic": "هانتنج"
+    },
+    {
+        "English": "Haojiang",
+        "Arabic": "هوجن"
+    },
+    {
+        "English": "Haojue",
+        "Arabic": "هوجي"
+    },
+    {
+        "English": "Harley Davidson",
+        "Arabic": "هارلي ديفيدسون"
+    },
+    {
+        "English": "Haval",
+        "Arabic": "هافال"
+    },
+    {
+        "English": "Honda",
+        "Arabic": "هوندا"
+    },
+    {
+        "English": "Honda-Wuyang",
+        "Arabic": "هوندا ويانج"
+    },
+    {
+        "English": "Hongqi",
+        "Arabic": "هونج تشى"
+    },
+    {
+        "English": "Hummer",
+        "Arabic": "هامر"
+    },
+    {
+        "English": "Hyundai",
+        "Arabic": "هيونداي"
+    },
+    {
+        "English": "Ineos",
+        "Arabic": "اينوس"
+    },
+    {
+        "English": "Infiniti",
+        "Arabic": "انفينيتي"
+    },
+    {
+        "English": "Isuzu",
+        "Arabic": "ايسوزو"
+    },
+    {
+        "English": "Jac",
+        "Arabic": "جاك"
+    },
+    {
+        "English": "Jaecoo",
+        "Arabic": "جايكو"
+    },
+    {
+        "English": "Jaguar",
+        "Arabic": "جاكوار"
+    },
+    {
+        "English": "Jeep",
+        "Arabic": "جيب"
+    },
+    {
+        "English": "Jetour",
+        "Arabic": "جيتور"
+    },
+    {
+        "English": "Jinbei",
+        "Arabic": "جينبى"
+    },
+    {
+        "English": "JMC",
+        "Arabic": "جى ام سى"
+    },
+    {
+        "English": "Jonway",
+        "Arabic": "جون واى"
+    },
+    {
+        "English": "Joylong",
+        "Arabic": "جوى لونج"
+    },
+    {
+        "English": "Kaiyi",
+        "Arabic": "كاي ي"
+    },
+    {
+        "English": "Karry",
+        "Arabic": "كارى"
+    },
+    {
+        "English": "Kawasaki",
+        "Arabic": "كوازاكي"
+    },
+    {
+        "English": "Keeway",
+        "Arabic": "كيواي"
+    },
+    {
+        "English": "Kenbo",
+        "Arabic": "كينبو"
+    },
+    {
+        "English": "Keyton",
+        "Arabic": "كيتون"
+    },
+    {
+        "English": "KGM",
+        "Arabic": "كي جي ام"
+    },
+    {
+        "English": "Kia",
+        "Arabic": "كيا"
+    },
+    {
+        "English": "King Long",
+        "Arabic": "كينج لونج"
+    },
+    {
+        "English": "KYC",
+        "Arabic": "كى واى سى"
+    },
+    {
+        "English": "KYMCO",
+        "Arabic": "كيمكو"
+    },
+    {
+        "English": "Lada",
+        "Arabic": "لادا"
+    },
+    {
+        "English": "Lamborghini",
+        "Arabic": "لمبرجيني"
+    },
+    {
+        "English": "Lancia",
+        "Arabic": "لانشيا"
+    },
+    {
+        "English": "Land Rover",
+        "Arabic": "لاند روفر"
+    },
+    {
+        "English": "Landwind",
+        "Arabic": "لاندويند"
+    },
+    {
+        "English": "Leapmotor",
+        "Arabic": "ليب موتور"
+    },
+    {
+        "English": "Lexus",
+        "Arabic": "لكزس"
+    },
+    {
+        "English": "Lifan",
+        "Arabic": "ليفان"
+    },
+    {
+        "English": "Lincoln",
+        "Arabic": "لينكولن"
+    },
+    {
+        "English": "LML",
+        "Arabic": "ال ام ال"
+    },
+    {
+        "English": "Lotus",
+        "Arabic": "لوتس"
+    },
+    {
+        "English": "Lynkco",
+        "Arabic": "لينك كو"
+    },
+    {
+        "English": "Mahindra",
+        "Arabic": "ماهيندرا"
+    },
+    {
+        "English": "Maserati",
+        "Arabic": "مازيراتي"
+    },
+    {
+        "English": "Maxus",
+        "Arabic": "ماكسيس"
+    },
+    {
+        "English": "Mazda",
+        "Arabic": "مازدا"
+    },
+    {
+        "English": "McLaren",
+        "Arabic": "ماكلارين"
+    },
+    {
+        "English": "Mercedes",
+        "Arabic": "مرسيدس"
+    },
+    {
+        "English": "Mercury",
+        "Arabic": "ميركوري"
+    },
+    {
+        "English": "MG",
+        "Arabic": "ام جى"
+    },
+    {
+        "English": "Mini",
+        "Arabic": "مينى"
+    },
+    {
+        "English": "Mitsubishi",
+        "Arabic": "ميتسوبيشي"
+    },
+    {
+        "English": "Nissan",
+        "Arabic": "نيسان"
+    },
+    {
+        "English": "Opel",
+        "Arabic": "اوبل"
+    },
+    {
+        "English": "Perodua",
+        "Arabic": "بيرودوا"
+    },
+    {
+        "English": "Peugeot",
+        "Arabic": "بيجو"
+    },
+    {
+        "English": "Polestar",
+        "Arabic": "بوليستر"
+    },
+    {
+        "English": "Pontiac",
+        "Arabic": "بونتياك"
+    },
+    {
+        "English": "Porsche",
+        "Arabic": "بورش"
+    },
+    {
+        "English": "Proton",
+        "Arabic": "بروتون"
+    },
+    {
+        "English": "Pullman",
+        "Arabic": "بولمان"
+    },
+    {
+        "English": "Renault",
+        "Arabic": "رينو"
+    },
+    {
+        "English": "Rolls Royce",
+        "Arabic": "رولز رويس"
+    },
+    {
+        "English": "Rox",
+        "Arabic": "روكس"
+    },
+    {
+        "English": "Saab",
+        "Arabic": "ساب"
+    },
+    {
+        "English": "Saipa",
+        "Arabic": "سايبا"
+    },
+    {
+        "English": "Scion",
+        "Arabic": "سايون"
+    },
+    {
+        "English": "Seat",
+        "Arabic": "سيات"
+    },
+    {
+        "English": "Senova",
+        "Arabic": "سينوفا"
+    },
+    {
+        "English": "Seres",
+        "Arabic": "سيريس"
+    },
+    {
+        "English": "Shineray",
+        "Arabic": "شينراي"
+    },
+    {
+        "English": "Skoda",
+        "Arabic": "سكودا"
+    },
+    {
+        "English": "Skywell",
+        "Arabic": "سكاي ويل"
+    },
+    {
+        "English": "Smart",
+        "Arabic": "سمارت"
+    },
+    {
+        "English": "Sokon",
+        "Arabic": "سوكون"
+    },
+    {
+        "English": "Soueast",
+        "Arabic": "ساوايست"
+    },
+    {
+        "English": "Speranza",
+        "Arabic": "اسبيرانزا"
+    },
+    {
+        "English": "Ssang Yong",
+        "Arabic": "سانج يونج"
+    },
+    {
+        "English": "Subaru",
+        "Arabic": "سوبارو"
+    },
+    {
+        "English": "Suzuki",
+        "Arabic": "سوزوكى"
+    },
+    {
+        "English": "SYM",
+        "Arabic": "اس واى ام"
+    },
+    {
+        "English": "Tank",
+        "Arabic": "تانك"
+    },
+    {
+        "English": "Tata",
+        "Arabic": "تاتا"
+    },
+    {
+        "English": "Tesla",
+        "Arabic": "تسلا"
+    },
+    {
+        "English": "Toyota",
+        "Arabic": "تويوتا"
+    },
+    {
+        "English": "TVS",
+        "Arabic": "تى فى اس"
+    },
+    {
+        "English": "Vgv",
+        "Arabic": "فى جى فى"
+    },
+    {
+        "English": "Victory",
+        "Arabic": "فيكتورى"
+    },
+    {
+        "English": "Volkswagen",
+        "Arabic": "فولكس فاغن"
+    },
+    {
+        "English": "Volvo",
+        "Arabic": "فولفو"
+    },
+    {
+        "English": "Wuyang",
+        "Arabic": "وينج"
+    },
+    {
+        "English": "Xpeng",
+        "Arabic": "اكس بنج"
+    },
+    {
+        "English": "Yadea",
+        "Arabic": "ياديا"
+    },
+    {
+        "English": "Yamaha",
+        "Arabic": "ياماها"
+    },
+    {
+        "English": "Zeekr",
+        "Arabic": "زيكر"
+    },
+    {
+        "English": "ZNA",
+        "Arabic": "زد ان اى"
+    },
+    {
+        "English": "Zontes",
+        "Arabic": "زونتس"
+    },
+    {
+        "English": "Zotye",
+        "Arabic": "زوتى"
+    }
+]
