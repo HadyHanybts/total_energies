@@ -3,15 +3,13 @@ import 'package:total_energies/core/constant/colors.dart';
 
 class Custrowrdiobtn extends FormField<String> {
   Custrowrdiobtn({
-    Key? key,
+    super.key,
     required TextEditingController controller,
     required String labelText,
     required List<String> options,
-    String? Function(String?)? validator,
+    super.validator,
     bool showAsterisk = false,
   }) : super(
-          key: key,
-          validator: validator,
           builder: (FormFieldState<String> state) {
             return Container(
               margin: EdgeInsets.symmetric(vertical: 10),

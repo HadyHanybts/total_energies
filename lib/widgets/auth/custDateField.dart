@@ -29,15 +29,19 @@ class _CustDatePickerFieldState extends State<CustDatePickerField> {
   Future<void> _selectDate(BuildContext context) async {
     DateTime? pickedDate = await showDatePicker(
       context: context,
-      initialDate: widget.dateFrom, // Default to minimum date
-      firstDate: widget.dateFrom, // Enforce min date
-      lastDate: widget.dateTo, // Enforce max date
+      initialDate: widget.dateFrom,
+      firstDate: widget.dateFrom,
+      lastDate: widget.dateTo,
     );
 
-    setState(() {
-      widget.controller.text =
-          "${pickedDate?.day}-${pickedDate?.month}-${pickedDate?.year}"; // Format date
-    });
+    if (pickedDate != null) {
+      final formattedDate = "${pickedDate.day.toString().padLeft(2, '0')}/"
+          "${pickedDate.month.toString().padLeft(2, '0')}/"
+          "${pickedDate.year}";
+      setState(() {
+        widget.controller.text = formattedDate;
+      });
+    }
   }
 
   @override

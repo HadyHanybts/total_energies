@@ -23,7 +23,7 @@ class _ForgetPassState extends State<ForgetPass> {
   bool _showOtpField = false;
 
   void sendOtp() {
-    if (_phoneController.text.isNotEmpty) {
+    if (_phoneController.text.length > 8) {
       setState(() {
         _showOtpField = true;
       });

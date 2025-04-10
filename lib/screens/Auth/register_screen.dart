@@ -274,50 +274,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   // validator: _validateEmail,
                   prefixIcon: Icons.mail,
                 ),
-                CustDatePickerField(
-                  controller: _birthDateController,
-                  labelText: 'register_page.birth_date_label'.tr,
-                  hintText: 'register_page.birth_date_hint'.tr,
-                  dateFrom: DateTime(1990, 1, 1), // Example: Minimum date
-                  dateTo: DateTime.now(), // Example: Maximum date (today)
-                  validator: _validateDate,
-                ),
-                Custtxtfield(
-                  controller: _carModelController,
-                  labelText: 'register_page.car_model_label'.tr,
-                  hintText: 'register_page.car_model_hint'.tr,
-                  keyboardType: TextInputType.text,
-                  // validator: _validateName,
-                  prefixIcon: Icons.directions_car,
-                ),
-                Custtxtfield(
-                  controller: _carModelYear,
-                  labelText: 'register_page.car_model_year_label'.tr,
-                  hintText: 'register_page.car_model_year_hint'.tr,
-                  keyboardType: TextInputType.number,
-                  // validator: _validateYear,
-                  prefixIcon: Icons.calendar_today,
-                ),
-                Text(
-                  "Password: 1 upper letter + 1 small letter + minimum length 8",
-                  style: TextStyle(color: Colors.red, fontSize: 12),
-                ),
-                CustPasswordField(
-                  controller: _passwordController,
-                  labelText: 'register_page.password_label'.tr,
-                  hintText: 'register_page.password_hint'.tr,
-                  validator: _validatePassword,
-                  showAsterisk: true,
-                ),
-                CustConfirmPasswordField(
-                  controller: _confirmPasswordController,
-                  passwordController:
-                      _passwordController, //  Pass the original password
-                  labelText: 'register_page.confrim_password_label'.tr,
-                  hintText: 'register_page.confrim_password_hint'.tr,
-                  validator: _validateConfirmPassword,
-                  showAsterisk: true,
-                ),
                 Custrowrdiobtn(
                   controller: _genderController,
                   labelText: 'register_page.gender_label'.tr,
@@ -336,6 +292,50 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   showAsterisk: true,
                 ),
                 SizedBox(height: 20),
+                CustDatePickerField(
+                  controller: _birthDateController,
+                  labelText: 'register_page.birth_date_label'.tr,
+                  hintText: 'register_page.birth_date_hint'.tr,
+                  dateFrom: DateTime(1990, 1, 1), // Example: Minimum date
+                  dateTo: DateTime.now(), // Example: Maximum date (today)
+                  validator: _validateDate,
+                ),
+                Custtxtfield(
+                  controller: _carModelController,
+                  labelText: 'register_page.car_brand_label'.tr,
+                  hintText: 'register_page.car_brand_hint'.tr,
+                  keyboardType: TextInputType.text,
+                  // validator: _validateName,
+                  prefixIcon: Icons.directions_car,
+                ),
+                Custtxtfield(
+                  controller: _carModelYear,
+                  labelText: 'register_page.car_brand_year_label'.tr,
+                  hintText: 'register_page.car_brand_year_hint'.tr,
+                  keyboardType: TextInputType.number,
+                  // validator: _validateYear,
+                  prefixIcon: Icons.calendar_today,
+                ),
+                CustPasswordField(
+                  controller: _passwordController,
+                  labelText: 'register_page.password_label'.tr,
+                  hintText: 'register_page.password_hint'.tr,
+                  validator: _validatePassword,
+                  showAsterisk: true,
+                ),
+                CustConfirmPasswordField(
+                  controller: _confirmPasswordController,
+                  passwordController:
+                      _passwordController, //  Pass the original password
+                  labelText: 'register_page.confrim_password_label'.tr,
+                  hintText: 'register_page.confrim_password_hint'.tr,
+                  validator: _validateConfirmPassword,
+                  showAsterisk: true,
+                ),
+                Text(
+                  "Password: 1 upper letter + 1 small letter + minimum length 8",
+                  style: TextStyle(color: Colors.red, fontSize: 12),
+                ),
                 TextWithCheckbox(
                   text: 'register_page.term&cond'.tr,
                   value: _agreeTerms,
